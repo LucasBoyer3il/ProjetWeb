@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    position: relative;
+    display: flex;
+    background-color: #442220;
+    height: 150px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav {
+    position: relative;
+    background-color: #809848;  
+    height: 50px;
+    border-bottom: solid #442220 3px;
+}
+
+.bouton {
+    position: relative;
+    display: flex;
+    float: left;
+    color: #442220;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-color: #809848;
+    height: 100%;
+    width: 100px;
+}
+
+.bouton:hover {
+    color: #442220;
+    background-color: #b5dead;
+}
+
+.bouton:active {
+    color: white;
+    background-color: rgb(255, 199, 96);
+}
+
+.retour {
+    float: right;
+}
+
+section  {
+    height: 600px;
+    background-color: #b5dead;
+}
+
+footer {
+    height: 200px;
+    background-color: #2e0014;
+    color: white;
+}
