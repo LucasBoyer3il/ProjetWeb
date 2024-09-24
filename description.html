@@ -13,13 +13,40 @@
             <h1>header</h1>
         </header>
         <nav>
-            <a class= "bouton retour" href="index.html">Accueil</a>
+            <a class= "bouton" href="index.html">Accueil</a>
         </nav>
         <section>
-             
+            <h2>Description de l'item</h2>
+            <div class="container">
+                <img id="image" src="" alt=""/> 
+                <div id="description"></div>
         </section>
         <footer>
             Pied de page
         </footer>
     </body>
+
+    <script>
+        var description = new XMLHttpRequest();
+        description.onload = function() {
+            document.getElementById("description").innerHTML = description.responseText;
+        };
+        description.open("GET", "description.txt", true);
+        description.send();
+
+        var image = new XMLHttpRequest();
+        image.onload = function() {
+            var respXML = this.responseXML;
+            var imgName = respXML.getElementsByTagName("DESCRIPTION")[0].innerHTML;
+            document.getElementById("image").setAttribute("src", imgName);
+        };
+        image.open("GET", "./images.xml", true);
+        image.send();
+
+
+        /*
+        xhttp.open("GET", "./desciption.txt?var=2", true);
+        xhttp.send();
+        */
+    </script>
 </html>

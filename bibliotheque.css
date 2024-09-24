@@ -19,6 +19,8 @@ header {
 
 nav {
     position: relative;
+    display: flex;
+    justify-content: space-around;
     background-color: #809848;  
     height: 50px;
     border-bottom: solid #442220 3px;
@@ -27,7 +29,6 @@ nav {
 .bouton {
     position: relative;
     display: flex;
-    float: left;
     color: #442220;
     text-decoration: none;
     text-align: center;
@@ -46,19 +47,37 @@ nav {
 
 .bouton:active {
     color: white;
-    background-color: rgb(255, 199, 96);
-}
-
-.retour {
-    float: right;
+    background-color: #442220;
 }
 
 section  {
-    height: 600px;
-    background-color: #b5dead;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 352px;
+}
+img {
+    margin: 30px;
+    display: flex;
+    width: 350px;
+    height: 350px;
+    border: solid #442220 2px;
+    background-color:  #b5dead;
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 200px;
     background-color: #2e0014;
     color: white;
