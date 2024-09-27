@@ -8,11 +8,12 @@
             <h1>C'est le site internet</h1>
         </header>
         <nav>
-            <a class= "bouton" href="description.php">Jeux</a>
-            <a class= "bouton" href="">Catégories</a>
-            <a class= "bouton" href="">Contact</a>
+            <a class="boutonNav" href="">Jeux</a>
+            <a class="boutonNav" href="">Catégories</a>
+            <a class="boutonNav" href="">Contact</a>
+            <a class="boutonNav" href="insertion.php?mode=insertion">Insérer jeu</a>
         </nav>
-        <section>
+        <section id="indexSection">
             <h2>Liste des items</h2>
             <div id="container">
                 <!-- Generé en php fichier BDDRequest.php-->

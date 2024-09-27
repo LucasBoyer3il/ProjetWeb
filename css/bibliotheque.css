@@ -1,3 +1,6 @@
+@import url("form.css");
+@import url("description.css");
+
 * {
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
@@ -34,7 +37,7 @@ nav {
     border-bottom: solid #442220 3px;
 }
 
-.bouton {
+.boutonNav {
     position: relative;
     display: flex;
     color: #442220;
@@ -48,17 +51,17 @@ nav {
     width: 100px;
 }
 
-.bouton:hover {
+.boutonNav:hover {
     color: #442220;
     background-color: #b5dead;
 }
 
-.bouton:active {
+.boutonNav:active {
     color: white;
     background-color: #442220;
 }
 
-section  {
+#indexSection  {
     margin: 30px;
     display: flex;
     flex-direction: column;
@@ -72,14 +75,10 @@ section  {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 900px;
+    max-width: 1800px;
 }
 
-.containerDescription {
-    flex-direction: row;
-}
-
-#description {
+#presentationTexte {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,11 +87,29 @@ section  {
     max-width: 350px;
 }
 
+#descriptionTexte { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width: 350px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid #809848 2px;
+    padding: 20px;
+    margin: 10px;
+}
+
 #imgdesc {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 600px;
 }
 
 .imageContainer {
@@ -114,7 +131,11 @@ h3 {
 }
 
 img {
-    max-width: 350px;
+    width: 350px;
+}
+
+.descriptionImage {
+    width: 620px;
 }
 
 .lienImage {
@@ -130,3 +151,4 @@ footer {
     background-color: #2e0014;
     color: white;
 }
+
