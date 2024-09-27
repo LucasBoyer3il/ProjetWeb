@@ -1,0 +1,1 @@
+INSERT INTO `jeux` (`id`, `image`, `nom`, `présentation`, `description`) VALUES ('', '', '', '', '');

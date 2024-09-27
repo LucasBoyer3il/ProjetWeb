@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="title" content="Titre de la page"/>
-        <meta name="description" content="description de la page" />
-        <meta name="keywords" content="mots-clé, mot" />
-        <meta name="robots" content="index,follow" />
-        <link rel="stylesheet" type="text/css" href="bibliotheque.css"/>
-    </head>
+    <?php
+        require_once("./html/head.html")
+    ?>
     <body>
         <header>
             <h1>header</h1>
         </header>
         <nav>
-            <a class= "bouton" href="index.html">Accueil</a>
+            <a class= "bouton" href="index.php">Accueil</a>
         </nav>
         <section>
             <h2>Description de l'item</h2>
-            <div class="container">
-                <img id="image" src="" alt=""/> 
-                <div id="description"></div>
+            <div class="containerDescription" id="container">
         </section>
         <footer>
             Pied de page
@@ -27,7 +20,19 @@
     </body>
 
     <script>
-        var description = new XMLHttpRequest();
+        var queryString = window.location.search;
+        console.log(queryString);
+        var urlParams = new URLSearchParams(queryString);
+        var image = urlParams.get('image');
+        console.log(image);
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function() {
+            document.getElementById('container').innerHTML = this.responseText;
+        };
+        xmlHttp.open("GET", "./php/BDDRequestDescription.php?image="+image, true);
+        xmlHttp.send();
+        /*var description = new XMLHttpRequest();
         description.onload = function() {
             document.getElementById("description").innerHTML = description.responseText;
         };
@@ -40,11 +45,8 @@
             var imgName = respXML.getElementsByTagName("DESCRIPTION")[0].innerHTML;
             document.getElementById("image").setAttribute("src", imgName);
         };
-        image.open("GET", "./images.xml", true);
+        image.open("GET", "./xml/images.xml", true);
         image.send();
-
-
-        /*
         xhttp.open("GET", "./desciption.txt?var=2", true);
         xhttp.send();
         */
