@@ -12,27 +12,25 @@ if(isset($_GET['id'])){
     $rowPresentation = $responsePresReq -> fetch_object();
 
     echo ("
-        <section class=\"widthFull flexBoxColumn flexBoxCenter shadow\">
-            <h2>".$rowPresentation->nomJeu."</h2>
-            <section class=\"widthFull flexBoxRow flexBoxSpaceAroundJustify\">
-                <img class=\"descriptionImage\" src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"".$rowPresentation->nomJeu."\"/>
-                <section class=\"flexBoxColumn flexBoxCenter\">");
-                if (isset($rowDescription->nombreJoueur)) {
-                    echo("<figurecaption class=\"description\">Nombre de joueur : ".$rowDescription->nombreJoueur."</figurecaption>");
-                }
-                if (isset($rowDescription->ageMinimum)) {
-                    echo("<figurecaption class=\"description\">Âge minimum requis : ".$rowDescription->ageMinimum." ans</figurecaption>");
-                }
-                if (isset($rowDescription->tempsJeu)) {
-                    echo("<figurecaption class=\"description\">Temps de jeu : ".$rowDescription->tempsJeu."</figurecaption>");
-                }
-    echo(
-                "</section>
-            </section>
-        <figurecaption class=\"flexBoxRow flexBoxSpaceAroundJustify\">".$rowDescription->description."</figurecaption>
-        </section>");
+        <h2>".$rowPresentation->nomJeu."</h2>
+        <div class=\"inDescriptionContainer\">
+            <img class=\"descriptionImage\" src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"".$rowPresentation->nomJeu."\"/>
+            <figurecaption id=\"descriptionTexte\">".$rowDescription->description."</figurecaption>
+        </div>
+        <div class=\"inDescriptionContainer\">");
+    if (isset($rowDescription->nombreJoueur)) {
+        echo("<figurecaption class=\"description\">Nombre de joueur : ".$rowDescription->nombreJoueur."</figurecaption>");
+    }
+    if (isset($rowDescription->ageMinimum)) {
+        echo("<figurecaption class=\"description\">Âge minimum requis : ".$rowDescription->ageMinimum." ans</figurecaption>");
+    }
+    if (isset($rowDescription->tempsJeu)) {
+        echo("<figurecaption class=\"description\">Temps de jeu : ".$rowDescription->tempsJeu."</figurecaption>");
+    }
+    echo("</div>");
     $responseDescReq -> free_result();
     $responsePresReq -> free_result();
+
 }
 $mysqli->close();
 

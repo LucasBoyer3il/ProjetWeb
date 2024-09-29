@@ -7,10 +7,12 @@
         <header>
             <h1>header</h1>
         </header>
-        <?php
-            require_once("./html/nav.html")
-        ?>
+        <nav>
+            <a class= "boutonNav" href="index.php">Accueil</a>
+        </nav>
         <section id="descriptionContainer">
+            <div >
+            </div>
         </section>
         <?php
         require_once("./html/footer.html")

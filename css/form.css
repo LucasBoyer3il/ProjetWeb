@@ -1,14 +1,30 @@
+#insertionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: flex-start;
+    width: 30%;
+    margin: 30px;
+}
+
 #formInsertionModification {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: flex-start;
     width: 100%;
 }
 
-input[type=text], input[type=file], textarea, select {
+input[type=text], input[type=file] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
     padding: 12px 20px;
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: none;
-}
+    box-sizing: border-box;
+  }
 
 
 .boutonValider {
@@ -16,10 +32,10 @@ input[type=text], input[type=file], textarea, select {
     justify-content: center;
     align-items: center;
     background-color: #809848; /* Green */
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     padding: 15px 32px;
-    color: white;
+    color: #442220;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
@@ -29,8 +45,22 @@ input[type=text], input[type=file], textarea, select {
     background-color: #b5dead;
 }
 
-#imageJeu {
+.bouton {
+    display: flex;
+    justify-content: center;
+    background-color: #809848; /* Green */
+    border-radius: 15px;
+    border: none;
+    padding: 15px 32px;
+    width: 100px;
+    color: #442220;
+    font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.bouton:hover {
+    background-color: #b5dead;
 }
 
 #presentationJeu {
@@ -59,6 +89,13 @@ input[type=text], input[type=file], textarea, select {
     flex-direction: row;
 }
 
+.flexBoxRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 #recherche {
     display: flex;
     flex-direction: row;
@@ -69,7 +106,7 @@ input[type=text], input[type=file], textarea, select {
 
 #rechercherValue {
     margin: 20px;
-    width: 80%;
+    width: 85%;
 }
 
 .boutonRechercher {
@@ -77,18 +114,12 @@ input[type=text], input[type=file], textarea, select {
     justify-content: center;
     align-items: center;
     background-color: #809848; /* Green */
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     padding: 15px 32px;
-    color: white;
+    color: #442220;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
     height: 50px;
-}
-
-#sectionimgdesc > section {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    height: 600px;
 }

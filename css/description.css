@@ -1,8 +1,3 @@
-.descriptionImage {
-    width: 620px;
-    height: 620px;
-}
-
 #descriptionContainer {
     display: flex;
     flex-direction: column;
@@ -11,18 +6,9 @@
     width: 100%;
 }
 
-#descriptionContainer > section {
-    width: 1460px;
-    margin: 50px;
-}
-
-#descriptionContainer > section > figurecaption {
-    width: 90%;
-    margin: 20px;
-}
-
-#descriptionContainer > section > section > section > figurecaption {
-    border-bottom: solid #809848 2px;
-    padding: 20px;
-    margin: 10px;
+.inDescriptionContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
 }

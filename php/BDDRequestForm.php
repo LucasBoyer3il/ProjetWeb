@@ -3,18 +3,20 @@ require_once("BDDConnect.php");
 
 if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
     if ($_GET['mode'] == "insertion") {
+        $request = "SELECT * FROM presentationJeux";
+        $response = $mysqli->query($request);
         echo ("
             <label for=\"nomJeu\">Nom du jeu : </label>
             <input name=\"nomJeu\" id=\"nomJeu\" type=\"text\">
         
             <label for=\"avatar\">Image du jeu :</label>
-            <input name=\"avatar\" id=\"imageJeu\" type=\"file\" accept=\"image/png\" />
+            <input name=\"avatar\" id=\"avatar\" type=\"file\" accept=\"image/png\" />
 
             <label for=\"presentationJeu\">Présentation du jeu : </label>
-            <textarea name=\"presentationJeu\" id=\"presentationJeu\" type=\"text\" rows=\"10\" cols=\"30\"></textarea>
+            <input name=\"presentationJeu\" id=\"presentationJeu\" type=\"text\">
         
             <label for=\"descriptionJeu\">Description du jeu : </label>
-            <textarea name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\" rows=\"10\" cols=\"30\"></textarea>
+            <input name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\">
 
             <label for=\"nombreJoueur\">Nombre de personne : </label>
             <input name=\"nombreJoueur\" id=\"nombreJoueur\" type=\"text\">
@@ -25,8 +27,9 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
             <label for=\"tempsJeu\">Temps de jeu : </label>
             <input name=\"tempsJeu\" id=\"tempsJeu\" type=\"text\">
     
-            <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"valider\">Valider</button>
+            <button class=\"boutonValider\" type=\"valider\">Valider</button>
             ");
+        $response -> free_result();
     } else if ($_GET['mode'] == "modifier") {
         $id = $_GET['id'];
         $descriptionRequest = "SELECT * FROM descriptionJeux WHERE id = ".$id."";
@@ -55,7 +58,7 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
             <label for=\"tempsJeu\">Temps de jeu : </label>
             <input name=\"tempsJeu\" id=\"tempsJeu\" type=\"text\" value=\"".$rowDescription->tempsJeu."\">
     
-            <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"valider\">Valider</button>
+            <button class=\"boutonValider\" type=\"valider\">Valider</button>
             ");
         $responsePresReq -> free_result();
         $responseDescReq -> free_result();

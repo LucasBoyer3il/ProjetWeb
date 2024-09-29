@@ -7,27 +7,27 @@
         <header>
             <h1>header</h1>
         </header>
-        <?php
-            require_once("./html/nav.html")
-        ?>
+        <nav>
+            <a class= "boutonNav" href="index.php">Accueil</a>
+        </nav>
         <section id="insertionEtJeuContainer">
             <section id="insertionContainer">
                 <h1>Insérer un jeu</h1>
-                <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="insertion.php" method="post" enctype="multipart/form-data">               
+                <form id="formInsertionModification" action="action.php" method="post">               
                 </form>
             </section>
             <section id="listeDesJeux">
-                <form id="recherche" class="flexBoxRow flexBoxCenter" action="insertion.php" method="post">
+                <form id="recherche" action="insertion.php" method="post">
                     <input name="rechercherValue" id="rechercherValue" type="text" placeholder="Nom à rechercher : ">
-                    <button class="widthBouton bouton flexBoxRow flexBoxCenter shadow">Rechercher</button>
+                    <button class="boutonRechercher">Rechercher</button>
                 </form>
                 <section id=sectionimgdesc>
                 </section>
             </section>
         </section>
-        <?php
-        require_once("./html/footer.html")
-        ?>
+        <footer>
+            Pied de page
+        </footer>
         <script>
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);

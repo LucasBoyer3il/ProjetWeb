@@ -1,7 +1,5 @@
 @import url("form.css");
 @import url("description.css");
-@import url("index.css");
-@import url("insertion.css");
 
 * {
     font-family: "Fredoka", sans-serif;
@@ -79,47 +77,90 @@ b {
         justify-content: center;
     }
 
-    .widthFull {
-        width: 100%;
-    }
 
-    .widthBouton {
-        width: 100px;
-    }
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    background-color: #809848;  
+    height: 50px;
+    border-bottom: solid #442220 3px;
+}
 
-    .margin {
-        margin: 20px;
-    }
-    
-    /* DEBUT FLEXBOX */
-        .flexBoxRow { 
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
+.boutonNav {
+    position: relative;
+    display: flex;
+    color: #442220;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-color: #809848;
+    height: 100%;
+    width: 100px;
+}
 
-        .flexBoxColumn {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-        }
+.boutonNav:hover {
+    color: #442220;
+    background-color: #b5dead;
+}
 
-        .flexBoxFlexStartJustify {
-            justify-self: flex-start;
-        }
+.boutonNav:active {
+    color: white;
+    background-color: #442220;
+}
 
-        .flexBoxFlexStartAlign {
-            align-self: flex-start;
-        }
+#indexSection  {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
 
-        .flexBoxCenter {
-            justify-content: center;
-            align-items: center;
-        }
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1800px;
+}
 
-        .flexBoxCenterJustify {
-            justify-content: center;
-        }
+#presentationTexte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-top: solid #809848 2px;
+    max-width: 350px;
+}
+
+#descriptionTexte { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width: 350px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid #809848 2px;
+    padding: 20px;
+    margin: 10px;
+}
+
+#imgdesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 600px;
+}
 
         .flexBoxCenterAlign {
             align-items: center;
@@ -172,17 +213,13 @@ b {
         width: 90%;
     }
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+img {
+    width: 350px;
+}
 
-    .imageContainer {
-        height: 350px;
-        width: 350px;
-        margin: 30px;
-    }
+.descriptionImage {
+    width: 620px;
+}
 
     hr {
         border: solid #d6d6d6  0.5px;
@@ -199,12 +236,12 @@ b {
         color: white;
     }
 
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 300px;
-        background-color: #2e0014;
-        color: white;
-    }
-/* FIN CSS CODE COMMUN */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #2e0014;
+    color: white;
+}
+
