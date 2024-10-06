@@ -1,132 +1,248 @@
+@import url("form.css");
+@import url("description.css");
+@import url("index.css");
+@import url("insertion.css");
+
 * {
-    font-family: "Fredoka", sans-serif;
+    --general: rgb(59, 46, 98);
+    --precis: rgb(210, 35, 96);
+    font-family: "Barlow Condensed", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-weight: 300;
-    font-variation-settings: "wdth" 100;
+    font-weight: 400;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+b {
+    font-weight: 600;
 }
 
-header {
-    position: relative;
-    display: flex;
-    background-color: #442220;
-    height: 150px;
-    color: white;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
+/* DEBUT NAV */
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: var(--general);  
+        height: 50px;
+    }
 
+    .boutonNav {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 18px;
+        transition: color 0.3s ease; /* Transition douce pour la couleur du texte */
+        width: 365px;
+    }
 
-nav {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    background-color: #809848;  
-    height: 50px;
-    border-bottom: solid #442220 3px;
-}
+    /* DEBUT ANIMATION ELEMENTS DE NAV */
+        .boutonNav::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: rgb(210, 35, 96); /* Couleur de la ligne */
+            bottom: 0; /* Place la ligne sous le texte */
+            left: 50%;
+            transition: width 0.4s ease, left 0.4s ease; /* Animation de la ligne */
+        }
 
-.bouton {
-    position: relative;
-    display: flex;
-    color: #442220;
-    text-decoration: none;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    background-color: #809848;
-    height: 100%;
-    width: 100px;
-}
+        .boutonNav:hover::after {
+            width: 100%; /* La ligne s'étend à 100% de la largeur du bouton */
+            left: 0; /* Déplace la ligne pour commencer à gauche */
+        }
 
-.bouton:hover {
-    color: #442220;
-    background-color: #b5dead;
-}
+        .boutonNav:hover {
+            color: rgb(210, 35, 96); /* Change la couleur du texte au survol */
+        }
+    /* FIN ANIMATION ELEMENTS DE NAV */
 
-.bouton:active {
-    color: white;
-    background-color: #442220;
-}
+    .boutonNav:active {
+        color: white;
+        background-color: rgb(210, 35, 96);
+    }
+/* FIN NAV */
 
-section  {
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
+/* DEBUT CSS CODE COMMUN */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 900px;
-}
+    header {
+        display: flex;
+        background-color: white;
+        height: 210px;
+        color: black;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        column-gap: 500px;
+    }
 
-.containerDescription {
-    flex-direction: row;
-}
+    .bleu {
+        font-weight: 800;
+        color: var(--general);
+    }
 
-#description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border-top: solid #809848 2px;
-    max-width: 350px;
-}
+    .rose {
+        font-weight: 800;
+        color: var(--precis);
+    }
 
-#imgdesc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    .logo {
+        width: 200px;
+        height: 200px;
+    }
 
-.imageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 350px;
-    width: 350px;
-    margin:30px;
-}
+    .widthFull {
+        width: 100%;
+    }
 
-h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: solid #809848 2px;
-    padding: 10px;
-    width: 90%;
-}
+    .widthSection {
+        max-width: 1300px;
+    }
 
-img {
-    max-width: 350px;
-}
+    .widthBouton {
+        width: 100px;
+    }
 
-.lienImage {
-    text-decoration: none;
-    color: black;
-}
+    .widthTexte {
+        width: 500px;
+    }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    background-color: #2e0014;
-    color: white;
-}
+    .margin {
+        margin: 20px;
+    }
+    
+    /* DEBUT FLEXBOX */
+        .flexBoxRow { 
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .flexBoxColumn {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .flexBoxFlexStartJustify {
+            justify-self: flex-start;
+        }
+
+        .flexBoxFlexStartAlign {
+            align-self: flex-start;
+        }
+
+        .flexBoxFlexEndJustify {
+            justify-self: flex-end;
+        }
+
+        .flexBoxFlexEndAlign {
+            align-self: flex-end;
+        }
+
+        .flexBoxCenter {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flexBoxCenterJustify {
+            justify-content: center;
+        }
+
+        .flexBoxCenterAlign {
+            align-items: center;
+        }
+
+        .flexBoxSpaceEvenly {
+            justify-content: space-evenly;
+        }
+
+        .flexBoxSpaceAroundJustify {
+            justify-content: space-around;
+        }
+
+        .flexBoxSpaceAroundAlign {
+            align-items: space-around;
+        }
+
+        .flexGrow2 {
+            flex-grow: 1;
+        }
+    /* FIN FLEXBOX */
+
+    /* DEBUT OMBRES */
+        .shadow {
+            transition: box-shadow 0.3s ease-in-out;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .shadow:hover {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+    /* FIN OMBRES */
+
+    /* DEBUT BOUTON */
+        .bouton {
+            background-color: var(--general); 
+            border-radius: 5px;
+            border: none;
+            padding: 15px 32px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .bouton:hover {
+            background-color: rgb(210, 35, 96);
+        }
+    /* FIN BOUTON */
+
+    h3 {
+        border-bottom: solid rgb(210, 35, 96) 2px;
+        padding: 10px;
+        width: 90%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .imageContainer {
+        height: 350px;
+        width: 350px;
+        margin: 30px;
+    }
+
+    hr {
+        border: solid #d6d6d6  0.5px;
+        width: 100%;
+    }
+
+    .icons {
+        width: 4%;
+        padding: 5px;
+    }
+
+    .footerText {
+        text-decoration: none;
+        color: white;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        background-color: var(--general);
+        color: white;
+    }
+/* FIN CSS CODE COMMUN */

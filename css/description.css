@@ -1,0 +1,28 @@
+.descriptionImage {
+    width: 620px;
+    height: 620px;
+}
+
+#descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#descriptionContainer > section {
+    width: 1460px;
+    margin: 50px;
+}
+
+#descriptionContainer > section > figurecaption {
+    width: 90%;
+    margin: 20px;
+}
+
+#descriptionContainer > section > section > section > figurecaption {
+    border-bottom: solid var(--precis) 2px;
+    padding: 20px;
+    margin: 10px;
+}

@@ -1,0 +1,94 @@
+#formInsertionModification {
+    width: 100%;
+}
+
+input[type=text], input[type=file], textarea, select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+
+.boutonValider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--general); /* Green */
+    border-radius: 5px;
+    border: none;
+    padding: 15px 32px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boutonValider:hover {
+    background-color: var(--precis);
+}
+
+#imageJeu {
+    cursor: pointer;
+}
+
+#presentationJeu {
+    height: 250px;
+}
+
+#descriptionJeu {
+    height: 250px;
+}
+
+#listeDesJeux {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#sectionimgdesc {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#insertionEtJeuContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#recherche {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#rechercherValue {
+    margin: 20px;
+    width: 80%;
+}
+
+.boutonRechercher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--general); /* Green */
+    border-radius: 5px;
+    border: none;
+    padding: 15px 32px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    height: 50px;
+}
+
+#sectionimgdesc > section {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 600px;
+}

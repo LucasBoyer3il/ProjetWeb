@@ -4,30 +4,47 @@
         require_once("./html/head.html")
     ?>
     <body>
-        <header>
-            <h1>C'est le site internet</h1>
-        </header>
-        <nav>
-            <a class= "bouton" href="description.php">Jeux</a>
-            <a class= "bouton" href="">Catégories</a>
-            <a class= "bouton" href="">Contact</a>
-        </nav>
-        <section>
-            <h2>Liste des items</h2>
-            <div id="container">
-                <!-- Generé en php fichier BDDRequest.php-->
-            </div>             
+        <?php
+            require_once("./html/header.html")
+        ?>
+        <?php
+        require_once("./html/nav.html")
+        ?>
+        <section class="flexBoxColumn flexBoxCenter">
+            <h2>Jeux de société</h2>
+              <section class="widthFull flexBoxRow flexBoxCenterJustify flexBoxFlexStartAlign">
+                <section id="filterContainer" class="flexBoxColumn flexBoxCenterAlign shadow">
+                    <h1>Filtres de recherche</h1>
+                    <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="index.php" method="post" enctype="multipart/form-data"></form>
+                </section>
+                <section>
+                    <form id="recherche" action="insertion.php" method="post">
+                            <input name="rechercherValue" id="rechercherValue" class="shadow" type="text" placeholder="Nom à rechercher : ">
+                            <button class="boutonRechercher shadow">Rechercher</button>
+                    </form>
+                    <section id="jeuxContainer" class="flexBoxRow flexBoxCenter">
+                        <!-- Generé en php fichier BDDRequestIndex.php-->
+                    </section> 
+                </section> 
+            </section>           
         </section>
-        <footer>
-            Pied de page
-        </footer>
+        <?php
+        require_once("./html/footer.html")
+        ?>
     </body>
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {
-            document.getElementById('container').innerHTML = this.responseText;
+            document.getElementById('jeuxContainer').innerHTML = this.responseText;
         };
-        xmlHttp.open("GET", "./php/BDDRequest.php", true);
+        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=jeux", true);
+        xmlHttp.send();
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function() {
+            document.getElementById('formInsertionModification').innerHTML = this.responseText;
+        };
+        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=filtres", true);
         xmlHttp.send();
     </script>
 </html>

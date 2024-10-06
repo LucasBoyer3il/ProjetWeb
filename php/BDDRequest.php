@@ -1,21 +1,28 @@
 <?php
 require_once("BDDConnect.php");
 
-$req = "SELECT * FROM jeux";
-$resReq = $mysqli->query($req);
-while ($row = $resReq -> fetch_object()) {
-     echo ("
-            <a class=\"lienImage\" href=\"description.php?image=".$row->image."\">
-                <div id=imgdesc>
-                    <h3>".$row->nom."</h3>
-                    <div class=\"imageContainer\">
-                        <img src=\"./img/".$row->image.".png\" alt=\"\"/>
-                    </div>
-                    <figurecaption id=\"description\">".$row->présentation."</figurecaption>
-                </div>
-            </a>");
-  }
-  $resReq -> free_result();
+if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
+    if ($_GET['mode'] == "insertion" || $_GET['mode'] == "modifier") {
+        $mode = $_GET['mode'];
+        $req = "SELECT * FROM presentationJeux";
+        $resReq = $mysqli->query($req);
+        while ($row = $resReq -> fetch_object()) {
+            echo ("
+                    <section class=\"flexBoxColumn flexBoxCenter shadow\">
+                        <h3 class=\"flexBoxRow flexBoxCenter\">".$row->nomJeu."</h3>
+                        <a class=\"imageContainer\"  href=\"description.php?id=".$row->id."\">
+                            <img src=\"./img/".$row->nomFichier.".png\" alt=\"\"/>
+                        </a>
+                        <div class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">
+                            <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"insertion.php?id=".$row->id."&mode=modifier\">Modifier</a>
+                            <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"supprimer.php?id=".$row->id."\">Supprimer</a>
+                        </div>
+                    </section>");
+        }
+        $resReq -> free_result();
+    } else if ($_GET['mode'] == "modifier") {
 
+    }
+} 
 $mysqli->close();
 ?>
