@@ -89,13 +89,6 @@ input[type=text], input[type=file] {
     flex-direction: row;
 }
 
-.flexBoxRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
 #recherche {
     display: flex;
     flex-direction: row;

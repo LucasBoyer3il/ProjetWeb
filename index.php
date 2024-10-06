@@ -49,14 +49,6 @@
             document.getElementById('formInsertionModification').innerHTML = this.responseText;
         };
         xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=filtres", true);
-        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=jeux", true);
-        xmlHttp.send();
-
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('formInsertionModification').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=filtres", true);
         xmlHttp.send();
     </script>
 </html>
