@@ -15,7 +15,7 @@
               <section class="widthFull flexBoxRow flexBoxCenterJustify flexBoxFlexStartAlign">
                 <section id="filterContainer" class="flexBoxColumn flexBoxCenterAlign shadow">
                     <h1>Filtres de recherche</h1>
-                    <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="index.php" method="post" enctype="multipart/form-data"></form>
+                    <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="./php/BDDRequestIndex.php" method="post" enctype="multipart/form-data"></form>
                 </section>
                 <section>
                     <form id="recherche" action="insertion.php" method="post">
@@ -38,7 +38,6 @@
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {
-            document.getElementById('jeuxContainer').innerHTML = this.responseText;
             document.getElementById('jeuxContainer').innerHTML = this.responseText;
         };
         xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=jeux", true);

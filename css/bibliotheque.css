@@ -79,7 +79,7 @@ b {
         align-items: center;
         justify-content: center;
         font-size: 50px;
-        column-gap: 500px;
+        column-gap: 200px;
     }
 
     .bleu {

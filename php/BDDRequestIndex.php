@@ -39,8 +39,8 @@ if ($_GET['affichage'] == "jeux") {
     echo ("
     <hr/>
 
-    <label for=\"nomJeu\">Nombre de joueurs : </label>
-    <select id=\"nomJeu\" name=\"nomJeu\" form=\"nomJeu\">
+    <label>Nombre de joueurs : </label>
+    <select id=\"nombreJoueur\" name=\"nombreJoueur\">
         <option value=\"\"></option>
         <option value=\"1\">1</option>
         <option value=\"2\">2</option>
@@ -57,22 +57,22 @@ if ($_GET['affichage'] == "jeux") {
 
     <hr/>
 
-    <label for=\"avatar\">Âge :</label>
-    <select id=\"age\" name=\"age\" form=\"age\">
+    <label>Âge :</label>
+    <select id=\"age\" name=\"age\">
         <option value=\"\"></option>
-        <option value=\"1\">6 ans</option>
-        <option value=\"1\">7 ans</option>
-        <option value=\"2\">8 ans</option>
-        <option value=\"3\">9 ans</option>
-        <option value=\"4\">10 ans</option>
-        <option value=\"4\">11 ans</option>
-        <option value=\"4\">12 ans</option>
+        <option value=\"6\">6 ans</option>
+        <option value=\"7\">7 ans</option>
+        <option value=\"8\">8 ans</option>
+        <option value=\"9\">9 ans</option>
+        <option value=\"10\">10 ans</option>
+        <option value=\"11\">11 ans</option>
+        <option value=\"12\">12 ans</option>
     </select>
 
     <hr/>
 
-    <label for=\"temps\">Temps de jeu : </label>
-    <select id=\"temps\" name=\"temps\" form=\"temps\">
+    <label>Temps de jeu : </label>
+    <select id=\"temps\" name=\"temps\">
         <option value=\"\"></option>
         <option value=\"1\">moins de 30 min</option>
         <option value=\"2\">entre 30 min et 45 min</option>
@@ -81,7 +81,7 @@ if ($_GET['affichage'] == "jeux") {
 
     <hr/>
 
-    <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"valider\">Valider</button>
+    <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"submit\">Valider</button>
     ");
 }
 $mysqli->close();

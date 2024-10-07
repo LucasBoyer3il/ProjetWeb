@@ -15,7 +15,7 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
                         </a>
                         <div class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">
                             <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"insertion.php?id=".$row->id."&mode=modifier\">Modifier</a>
-                            <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"supprimer.php?id=".$row->id."\">Supprimer</a>
+                            <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestSupprimer.php?id=".$row->id."\">Supprimer</a>
                         </div>
                     </section>");
         }

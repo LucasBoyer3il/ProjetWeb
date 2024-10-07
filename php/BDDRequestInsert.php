@@ -1,8 +1,13 @@
 <?php
 require_once("BDDConnect.php");
 
-if (isset($_POST["nomJeu"])) {
-    echo $_POST["nomJeu"];
-}
+
+$mysqli->query("INSERT INTO presentationjeux VALUES ('nomfichier','jjj','jjj')");
+
+$mysqli->query("INSERT INTO descriptionJeux VALUES ('descriptionJeu','nombreJoueur','ageMinimum','tempsJeu')");
+
+header('Location: ../insertion.php?mode=insertion');
+exit();
+
 $mysqli->close();
 ?>

@@ -12,8 +12,8 @@
         ?>
         <section id="insertionEtJeuContainer">
             <section id="insertionContainer">
-                <h1>Insérer un jeu</h1>
-                <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="insertion.php" method="post" enctype="multipart/form-data">               
+                <h3>Insérer un jeu</h3>
+                <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="./php/BDDRequestInsert.php" method="post" enctype="multipart/form-data">               
                 </form>
             </section>
             <section id="listeDesJeux">
