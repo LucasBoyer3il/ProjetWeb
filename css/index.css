@@ -5,10 +5,12 @@
 #jeuxContainer > section {
     margin-left: 20px;
     margin-bottom: 20px;
-    height: 700px;
+    height: 650px;
 }
 
 #jeuxContainer > section > figurecaption {
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
     border-top: solid var(--precis) 2px;
     max-width: 350px;

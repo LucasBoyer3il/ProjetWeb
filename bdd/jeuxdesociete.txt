@@ -1,3 +1,10 @@
+CREATE TABLE utilisateurs
+(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nomUtilisateur VARCHAR(50),
+    motDePasse VARCHAR(50)
+);
+
 CREATE TABLE presentationJeux
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -16,6 +23,8 @@ CREATE TABLE descriptionjeux
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES presentationjeux(id)
 );
+
+INSERT INTO `utilisateurs` (`nomUtilisateur`, `motDePasse`) VALUES ('admin', 'admin'); 
 
 INSERT INTO `presentationjeux` (`nomFichier`, `nomJeu`, `presentationJeu`) VALUES ('kamisado', 'Kamisado', 'Kamisado est un pur jeu de réflexion et de stratégie ! Dans le jeu primé Kamisado, l’objectif est d’être le premier à placer une tour de sa couleur sur l’une des cases de la rangée de base adverse. L’astuce : les joueurs ne peuvent déplacer qu’une tour dont la couleur du symbole correspond à la couleur de la case sur laquelle son adversaire s’est arrêté au coup précédent.');
 INSERT INTO `presentationjeux` (`nomFichier`, `nomJeu`, `presentationJeu`) VALUES ('mauditmotdit', 'Maudit mot dit', 'Dans ce jeu de déduction où il faut sans surprise deviner un mot, tout se joue sur le nombre d\'indices... ni trop, ni trop peu... Maudit Mot Dit est un jeu plein de malice.\r\nChacun va devoir faire deviner un mot… sans qu’il soit trouvé trop tôt !');

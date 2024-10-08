@@ -15,7 +15,7 @@
     width: 100%;
 }
 
-input[type=text], input[type=file] {
+input[type=text], input[type=file], input[type=password] {
     display: flex;
     justify-content: flex-start;
     align-items: start;

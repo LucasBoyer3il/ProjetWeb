@@ -12,9 +12,7 @@
         ?>
         <section id="insertionEtJeuContainer">
             <section id="insertionContainer">
-                <h3>Insérer un jeu</h3>
-                <form id="formInsertionModification" class="flexBoxColumn flexBoxFlexStart" action="./php/BDDRequestInsert.php" method="post" enctype="multipart/form-data">               
-                </form>
+
             </section>
             <section id="listeDesJeux">
                 <form id="recherche" class="flexBoxRow flexBoxCenter" action="insertion.php" method="post">
@@ -44,9 +42,26 @@
         var id = urlParams.get('id');
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {
-            document.getElementById('formInsertionModification').innerHTML = this.responseText;
+            document.getElementById('insertionContainer').innerHTML = this.responseText;
         };
         xmlHttp.open("GET", "./php/BDDRequestForm.php?id="+id+"&mode="+mode, true);
+        xmlHttp.send();
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function() {
+            document.getElementById('imageJeu').addEventListener("change", function(event) {
+
+            var output = document.querySelector("ul");
+            var files = event.target.files;
+
+            for (var i=0; i<files.length; i++) {
+                var item = document.createElement("li");
+                item.innerHTML = files[i].webkitRelativePath;
+                output.appendChild(item);
+            };
+            }, false);
+        }
+        xmlHttp.open("POST", "./php/UploadFile.php", true);
         xmlHttp.send();
     </script>
     </body>
