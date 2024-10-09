@@ -5,7 +5,7 @@
     ?>
     <body>
         <?php
-            require_once("./html/header.html")
+            require_once("./html/header.php")
         ?>
         <?php
             require_once("./html/nav.html")
@@ -77,6 +77,7 @@
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
 
+    <script src="./js/contact.js"></script>
     <script>
         let slideIndex = 0;
         const slides = document.querySelector('.carousel-wrapper');

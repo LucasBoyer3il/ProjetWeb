@@ -5,7 +5,7 @@
     ?>
     <body>
         <?php
-            require_once("./html/header.html")
+            require_once("./html/header.php")
         ?>
         <?php
         require_once("./html/nav.html")
@@ -73,4 +73,6 @@
         require_once("./html/footer.html")
         ?>
     </body>
+    <script src="./js/contact.js"></script>
+
 </html>

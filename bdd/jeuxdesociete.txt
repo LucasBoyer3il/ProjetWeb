@@ -1,7 +1,6 @@
 CREATE TABLE utilisateurs
 (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nomUtilisateur VARCHAR(50),
+    nomUtilisateur VARCHAR(50) PRIMARY KEY NOT NULL,
     motDePasse VARCHAR(50)
 );
 
@@ -24,6 +23,12 @@ CREATE TABLE descriptionjeux
     FOREIGN KEY(id) REFERENCES presentationjeux(id)
 );
 
+CREATE TABLE contact
+(
+    nom VARCHAR(50) PRIMARY KEY NOT NULL,
+    information VARCHAR(200)
+);
+
 INSERT INTO `utilisateurs` (`nomUtilisateur`, `motDePasse`) VALUES ('admin', 'admin'); 
 
 INSERT INTO `presentationjeux` (`nomFichier`, `nomJeu`, `presentationJeu`) VALUES ('kamisado', 'Kamisado', 'Kamisado est un pur jeu de réflexion et de stratégie ! Dans le jeu primé Kamisado, l’objectif est d’être le premier à placer une tour de sa couleur sur l’une des cases de la rangée de base adverse. L’astuce : les joueurs ne peuvent déplacer qu’une tour dont la couleur du symbole correspond à la couleur de la case sur laquelle son adversaire s’est arrêté au coup précédent.');
@@ -41,3 +46,8 @@ INSERT INTO `descriptionjeux` (`description`, `nombreJoueur`, `ageMinimum`, `tem
 INSERT INTO `descriptionjeux` (`description`, `nombreJoueur`, `ageMinimum`, `tempsJeu`) VALUES ('Chaque carte Pizza offre un choix entre trois niveaux de catégories : facile (vert), moyen (jaune) ou difficile (rouge).\r\nDès qu’un tour est lancé, chacun cherche un mot qui entre dans l’une des trois catégories ET commence par la lettre indiquée face à cette catégorie.\r\nLe premier joueur qui donne une bonne réponse à voix haute gagne le tour. Il remporte alors la carte Pizza qui contient la lettre jouée et l’ajoute à sa méga-part de pizza.\r\nEt c’est déjà parti pour le prochain tour !\r\nAu début de la partie on peut répondre à toutes les catégories : vert, jaune et rouge. Puis seulement les jaunes et rouges et enfin uniquement les rouges pour terminer sa méga-part de pizza.\r\nP comme Pizza est un jeu rapide, drôle et délicieusement simple, les combinaisons entre lettres et catégories sont toujours différentes. En famille ou entre amis, c\'est un jeu pour tout âge.', '2-4', '8', '30min');
 INSERT INTO `descriptionjeux` (`description`, `nombreJoueur`, `ageMinimum`, `tempsJeu`) VALUES ('Issu du jeu vidéo du même nom, Dorfromantik est un jeu coopératif dans lequel les joueurs vont créer ensemble un village idyllique. Des rivières ondoyantes, des forêts bruissantes, des champs de blé se balançant dans le vent et ici et là un joli petit village - voilà votre objectif commun et votre défi tout au long des parties !\r\nDans ce jeu de placement de tuiles très accessible, chaque joueur, à son tour, consulte les autres joueurs afin de placer  au mieux la tuile piochée, dans le but de créer un paysage harmonieux et de répondre aux requêtes de la population.\r\nLe score est calculé en fin de partie selon la plus grande voie ferrée, la plus grande rivière, les différents terrains et les objectifs réalisés. Sous forme de campagne, le score atteint permet de débloquer du contenu supplémentaire (nouvelles tuiles, nouvelles cartes, pions spéciaux…) afin de marquer encore plus de points lors des parties suivantes. Quel sera votre record ?', '1-6', '8', '45min');
 INSERT INTO `descriptionjeux` (`description`, `nombreJoueur`, `ageMinimum`, `tempsJeu`) VALUES ('Dans le jeu de société Genius Square, il existe deux modes de jeu et 5 niveaux de difficultés.\r\n\r\n- Le mode duel : Il vous permet d\'adapter la difficulté du jeu selon la différence de niveaux entre les adversaires, ou bien de corser la partie pour tous. Lancez les dés, réfléchissez rapidement et atteignez le niveau WIZARD avant votre adversaire. \r\n- Le mode solitaire : Il vous permet de battre vos propres records de rapidité.\r\n\r\nLes mécaniques de jeux sont simples : chaque joueur prend un plateau de jeu, un jeu de 9 pièces de couleurs différentes et 7 cylindres neutres. Lancez tous les dés et placez les cylindres sur les coordonnées correspondantes afin de bloquer ces cases. Le plus rapide à compléter son plateau de jeu remporte la partie !\r\n\r\n Plus de 62 000 défis à maîtriser dans 5 niveaux de difficulté.\r\n\r\nGenius Square est un jeu pour toute la famille, où petits et grands pourront s’affronter à égalité de chance de l’emporter grâce aux différents niveaux proposés.', '2', '6', '10min');
+
+INSERT INTO `contact` (`nom`, `information`) VALUES ('Adresse', "11 Rue de l\'Abbé Bessou, 12000 Rodez"); 
+INSERT INTO `contact` (`nom`, `information`) VALUES ('Telephone', "05 65 68 14 77"); 
+INSERT INTO `contact` (`nom`, `information`) VALUES ('Email', "contact@lechaudronludique.fr"); 
+INSERT INTO `contact` (`nom`, `information`) VALUES ('Horaires', "Lundi : Fermé\r\nMardi - Vendredi : 10h30 - 19h\r\nSamedi : 10h - 19h\r\nDimanche : Fermé"); 

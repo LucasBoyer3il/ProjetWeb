@@ -5,7 +5,7 @@
     ?>
     <body>
         <?php
-            require_once("./html/header.html")
+            require_once("./html/header.php")
         ?>
         <?php
         require_once("./html/nav.html")
@@ -35,6 +35,7 @@
         require_once("./html/footer.html")
         ?>
     </body>
+    <script src="./js/contact.js"></script>
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {
@@ -47,6 +48,10 @@
         xmlHttp.onload = function() {
             document.getElementById('formInsertionModification').innerHTML = this.responseText;
         };
+        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=filtres", true);
+        xmlHttp.send();
+
+        var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=filtres", true);
         xmlHttp.send();
     </script>

@@ -8,10 +8,10 @@ if ($_GET['mode'] == 'connexion') {
 
     if ($rowConnexion->resultat == 0) {
         header('Location: ../connexion.php');
-        exit();
     } else {
+        session_start();
+        $_SESSION["user"] = $_POST['login'];
         header('Location: ../insertion.php?mode=insertion');
-        exit();
     }
 
     $responseReq -> free_result();
@@ -21,7 +21,10 @@ if ($_GET['mode'] == 'connexion') {
                     '" . $_POST['login'] . "',
                     '" . $_POST['motdepasse'] . "')");
     header('Location: ../index.php');
-    exit();
+} else if ($_GET['mode'] == 'deconnexion') {
+    session_start();
+    session_unset();
+    header('Location: ../index.php');
 }
 $mysqli->close();
 ?>

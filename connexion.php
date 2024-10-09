@@ -5,7 +5,7 @@
     ?>
     <body>
         <?php
-            require_once("./html/header.html")
+            require_once("./html/header.php")
         ?>
         <?php
             require_once("./html/nav.html")
@@ -41,6 +41,7 @@
         ?>
     </body>
 
+    <script src="./js/contact.js"></script>
     <script>
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);

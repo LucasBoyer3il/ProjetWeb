@@ -5,15 +5,13 @@
     ?>
     <body>
         <?php
-            require_once("./html/header.html")
+            require_once("./html/header.php")
         ?>
         <?php
             require_once("./html/nav.html")
         ?>
         <section id="insertionEtJeuContainer">
-            <section id="insertionContainer">
-
-            </section>
+            <section id="insertionContainer"></section>
             <section id="listeDesJeux">
                 <form id="recherche" class="flexBoxRow flexBoxCenter" action="insertion.php" method="post">
                     <input name="rechercherValue" id="rechercherValue" type="text" placeholder="Nom à rechercher : ">
@@ -26,6 +24,7 @@
         <?php
         require_once("./html/footer.html")
         ?>
+        <script src="./js/contact.js"></script>
         <script>
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
