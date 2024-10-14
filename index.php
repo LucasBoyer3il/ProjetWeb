@@ -31,9 +31,6 @@
         <?php
         require_once("./html/footer.html")
         ?>
-        <?php
-        require_once("./html/footer.html")
-        ?>
     </body>
     <script src="./js/contact.js"></script>
     <script>
