@@ -1,5 +1,6 @@
 #panierContainer {
     max-width: 1300px;
+    min-height: 500px;
 }
 
 #panierContainer > section {

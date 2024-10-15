@@ -18,7 +18,7 @@
         }
     } else {
         echo ('<a class="margin widthBouton bouton flexBoxRow flexBoxCenter shadow" href="connexion.php">Connexion</a>
-            <a class="margin widthBouton bouton flexBoxRow flexBoxCenter shadow" href="panier.php">Panier</a>');
+            <a class="margin widthBouton bouton flexBoxRow flexBoxCenter shadow" href="panier.php?mode=afficher">Panier</a>');
 
     }
 ?>
