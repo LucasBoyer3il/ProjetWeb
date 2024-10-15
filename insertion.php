@@ -24,7 +24,7 @@
         <?php
         require_once("./html/footer.html")
         ?>
-        <script src="./js/contact.js"></script>
+        <script src="./js/contactFooter.js"></script>
         <script>
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);

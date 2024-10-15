@@ -65,5 +65,5 @@
         ?>
     </body>
 
-    <script src="./js/contact.js"></script>
+    <script src="./js/contactFooter.js"></script>
 </html>

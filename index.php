@@ -32,7 +32,7 @@
         require_once("./html/footer.html")
         ?>
     </body>
-    <script src="./js/contact.js"></script>
+    <script src="./js/contactFooter.js"></script>
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {

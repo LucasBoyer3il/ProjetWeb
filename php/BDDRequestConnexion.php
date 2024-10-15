@@ -11,7 +11,11 @@ if ($_GET['mode'] == 'connexion') {
     } else {
         session_start();
         $_SESSION["user"] = $_POST['login'];
-        header('Location: ../insertion.php?mode=insertion');
+        if ($_SESSION["user"] == 'admin') {
+            header('Location: ../insertion.php?mode=insertion');
+        } else {
+            header('Location: ../index.php');
+        }
     }
 
     $responseReq -> free_result();
@@ -22,6 +26,7 @@ if ($_GET['mode'] == 'connexion') {
                     '" . $_POST['motdepasse'] . "')");
     header('Location: ../index.php');
 } else if ($_GET['mode'] == 'deconnexion') {
+    $mysqli->query("DELETE FROM panier");
     session_start();
     session_unset();
     header('Location: ../index.php');

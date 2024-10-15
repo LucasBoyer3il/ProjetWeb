@@ -77,7 +77,7 @@
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
 
-    <script src="./js/contact.js"></script>
+    <script src="./js/contactFooter.js"></script>
     <script>
         let slideIndex = 0;
         const slides = document.querySelector('.carousel-wrapper');

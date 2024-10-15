@@ -1,12 +1,19 @@
 <?php
 require_once("BDDConnect.php");
 
-if (!isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    echo($id);
     $mysqli->query("UPDATE presentationjeux 
                     SET nomFichier = '" . strtolower(str_replace(' ','',$_POST['nomJeu'])) . "',
                     nomJeu = '" . $_POST['nomJeu'] . "',
                     presentationJeu = '" . $_POST['presentationJeu'] . "'
+                    WHERE id=$id");
+    $mysqli->query("UPDATE descriptionJeux 
+                    SET description = '" . $_POST['descriptionJeu'] . "',
+                    nombreJoueur = '" . $_POST['nombreJoueur'] . "',
+                    ageMinimum = '" . $_POST['ageMinimum'] . "',
+                    tempsJeu = '" . $_POST['tempsJeu'] . "'
                     WHERE id=$id");
 } else {
     $mysqli->query("INSERT INTO presentationjeux (nomFichier, nomJeu, presentationJeu) 
@@ -30,5 +37,4 @@ if ($_FILES["imageJeu"]["error"] == UPLOAD_ERR_OK) {
 }
 
 header('Location: ../insertion.php?mode=insertion');
-exit();
 ?>

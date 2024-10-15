@@ -1,5 +1,6 @@
 @import url("form.css");
 @import url("description.css");
+@import url("panier.css");
 @import url("index.css");
 @import url("insertion.css");
 
@@ -97,6 +98,10 @@ b {
         height: 200px;
     }
 
+    .widthAuto {
+        width: auto;
+    }
+    
     .widthFull {
         width: 100%;
     }

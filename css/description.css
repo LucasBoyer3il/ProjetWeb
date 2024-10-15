@@ -1,6 +1,6 @@
 .descriptionImage {
-    width: 620px;
-    height: 620px;
+    width: 520px;
+    height: 520px;
 }
 
 #descriptionContainer {
@@ -12,7 +12,7 @@
 }
 
 #descriptionContainer > section {
-    width: 1460px;
+    width: 1060px;
     margin: 50px;
 }
 

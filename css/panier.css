@@ -1,0 +1,24 @@
+#panierContainer {
+    max-width: 1300px;
+}
+
+#panierContainer > section {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 650px;
+}
+
+#panierContainer > section > figurecaption {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-top: solid var(--precis) 2px;
+    max-width: 350px;
+    height: 70px;
+}
+
+#panierContainer > section > section > figurecaption {
+    border-bottom: solid var(--precis) 2px;
+    padding: 20px;
+    margin: 10px;
+}

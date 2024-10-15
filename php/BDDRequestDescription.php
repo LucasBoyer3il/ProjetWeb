@@ -15,7 +15,8 @@ if(isset($_GET['id'])){
             <h2>".$rowPresentation->nomJeu."</h2>
             <section class=\"widthFull flexBoxRow flexBoxSpaceAroundJustify\">
                 <img class=\"descriptionImage\" src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"".$rowPresentation->nomJeu."\"/>
-                <section class=\"flexBoxColumn flexBoxCenter\">");
+                <section class=\"flexBoxColumn flexBoxCenter\">
+                    <a class=\"margin widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestPanier.php?mode=ajouter&id=".$id."\">Ajouter au panier</a>");
                 if (isset($rowDescription->nombreJoueur)) {
                     echo("<figurecaption class=\"description\">Nombre de joueur : ".$rowDescription->nombreJoueur."</figurecaption>");
                 }

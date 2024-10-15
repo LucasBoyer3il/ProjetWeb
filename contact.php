@@ -15,7 +15,7 @@
             <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter. Nous serons ravis de vous répondre !</p>
 
             <!-- Section des informations de contact -->
-            <section id="contact-info">
+            <section id="contactInfo">
 
             </section>
             <!-- Carte Google Maps intégrée -->
@@ -52,5 +52,13 @@
             require_once("./html/footer.html")
         ?>
     </body>
-    <script src="./js/contact.js"></script>
+    <script src="./js/contactFooter.js"></script>
+    <script>
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function() {
+            document.getElementById('contactInfo').innerHTML = this.responseText;
+        };
+        xmlHttp.open("GET", "./php/BDDRequestContact.php", true);
+        xmlHttp.send();
+        </script>
 </html>
