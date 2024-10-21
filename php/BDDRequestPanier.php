@@ -12,7 +12,7 @@ if ($_GET['mode'] == 'ajouter') {
 } else if ($_GET['mode'] == 'afficher') {
     $panierRequest = "SELECT * FROM panier";
     $panierResponse = $mysqli->query($panierRequest);
-    if ($panierResponse->rowCount() == 0) {
+    if ($panierResponse->num_rows == 0) {
         echo("<h3>Votre panier est vide</h3>");
     } else {
         echo("<h3>Votre panier</h3>");

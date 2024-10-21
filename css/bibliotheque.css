@@ -3,6 +3,7 @@
 @import url("panier.css");
 @import url("index.css");
 @import url("insertion.css");
+@import url("actualite.css");
 
 * {
     --general: rgb(59, 46, 98);

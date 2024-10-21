@@ -1,7 +1,7 @@
 <?php
 require_once("BDDConnect.php");
 
-if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
+if (isset($_GET['mode'])) { 
     if ($_GET['mode'] == "insertion" || $_GET['mode'] == "modifier") {
         $mode = $_GET['mode'];
         $req = "SELECT * FROM presentationJeux";
@@ -17,11 +17,10 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
                             <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"insertion.php?id=".$row->id."&mode=modifier\">Modifier</a>
                             <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestSupprimer.php?id=".$row->id."\">Supprimer</a>
                         </div>
-                    </section>");
+                    </section>
+                ");
         }
         $resReq -> free_result();
-    } else if ($_GET['mode'] == "modifier") {
-
     }
 } 
 $mysqli->close();
