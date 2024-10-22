@@ -14,7 +14,7 @@ if ($_GET['mode'] == 'connexion') {
         if ($_SESSION["user"] == 'admin') {
             header('Location: ../insertion.php?mode=insertion');
         } else {
-            header('Location: ../index.php');
+            header('Location: ../jeux.php');
         }
     }
 
@@ -24,12 +24,12 @@ if ($_GET['mode'] == 'connexion') {
                     VALUES(
                     '" . $_POST['login'] . "',
                     '" . $_POST['motdepasse'] . "')");
-    header('Location: ../index.php');
+    header('Location: ../jeux.php');
 } else if ($_GET['mode'] == 'deconnexion') {
     $mysqli->query("DELETE FROM panier");
     session_start();
     session_unset();
-    header('Location: ../index.php');
+    header('Location: ../jeux.php');
 }
 $mysqli->close();
 ?>

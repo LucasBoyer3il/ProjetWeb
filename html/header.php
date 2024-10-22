@@ -1,6 +1,8 @@
 
     <header class="flexBoxRow flexBoxCenter">
-        <img class="logo" src="./imgBoutique/logo.png" alt="logo">
+        <a href="index.php">
+            <img class="logo" src="./imgBoutique/logo.png" alt="logo">
+        </a>
         <section class="flexBoxRow flexBoxCenter ">
             <h1 class="bleu">LE CHAUDRON&nbsp</h1>
             <h1 class="rose">LUDIQUE</h1>

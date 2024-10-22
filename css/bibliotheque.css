@@ -1,9 +1,10 @@
 @import url("form.css");
 @import url("description.css");
 @import url("panier.css");
-@import url("index.css");
+@import url("jeux.css");
 @import url("insertion.css");
 @import url("actualite.css");
+@import url("index.css");
 
 * {
     --general: rgb(59, 46, 98);
@@ -252,3 +253,9 @@ b {
         color: white;
     }
 /* FIN CSS CODE COMMUN */
+
+/*Images carroussel */
+    section > img{
+        width: 20vh;
+        height: auto;
+    }

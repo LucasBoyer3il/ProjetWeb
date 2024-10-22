@@ -35,7 +35,7 @@
         xmlHttp.onload = function() {
             document.getElementById('slides-container').innerHTML = this.responseText;
         };
-        xmlHttp.open("GET", "./php/BDDRequestIndex.php?affichage=jeux", true);
+        xmlHttp.open("GET", "./php/BDDRequestJeux.php?affichage=jeux", true);
         xmlHttp.send();
     </script>
 
