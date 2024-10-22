@@ -253,9 +253,3 @@ b {
         color: white;
     }
 /* FIN CSS CODE COMMUN */
-
-/*Images carroussel */
-    section > img{
-        width: 20vh;
-        height: auto;
-    }

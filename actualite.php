@@ -11,19 +11,19 @@
             require_once("./html/nav.html")
         ?>
         <!-- Carrousel Flexbox des nouveaux jeux -->
-         <section class="flexBoxRow flexBoxCenter">
-        <section class="margin widthSection flexBoxRow flexBoxCenter slider-wrapper">
-            <button class="slide-arrow" id="slide-arrow-prev">
-                &#8249;
-            </button>
-            <button class="slide-arrow" id="slide-arrow-next">
-                &#8250;
-            </button>
-            <ul class="slides-container" id="slides-container">
+        <section class="flexBoxRow flexBoxCenter">
+            <section class="margin widthSection flexBoxRow flexBoxCenter slider-wrapper">
+                <button class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+                </button>
+                <ul class="slides-container" id="slides-container">
 
-            </ul>
-        </section>
-</section>
+                </ul>
+            </section>
+    </section>
         <?php
             require_once("./html/footer.html")
         ?>
