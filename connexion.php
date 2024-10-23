@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-            require_once("./html/nav.html")
+            require_once("./html/nav.php")
         ?>
         <section class="margin flexBoxColumn flexBoxCenter">
             <section class="flexBoxColumn flexBoxCenter" >
@@ -42,6 +42,8 @@
     </body>
 
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+
     <script>
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);

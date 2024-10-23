@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-        require_once("./html/nav.html")
+        require_once("./html/nav.php")
         ?>
         <section class="flexBoxColumn flexBoxCenter">
             <h2>Jeux de société</h2>
@@ -33,6 +33,8 @@
         ?>
     </body>
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {

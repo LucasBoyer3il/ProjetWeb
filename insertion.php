@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-            require_once("./html/nav.html")
+            require_once("./html/nav.php")
         ?>
         <section id="insertionEtJeuContainer">
             <section id="insertionContainer"></section>

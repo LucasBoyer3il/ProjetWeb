@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-        require_once("./html/nav.html")
+        require_once("./html/nav.php")
         ?>
         <section class="flexBoxColumn flexBoxCenter">
             <section class="widthTexte flexBoxColumn flexBoxCenter">
@@ -24,6 +24,8 @@
         ?>
     </body>
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+
     <script>
         function functLoad() {
             var xmlHttp = new XMLHttpRequest();

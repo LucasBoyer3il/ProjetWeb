@@ -1,0 +1,19 @@
+
+@media only screen and (max-width: 990px) {
+
+    footer {
+        height: 420px !important;
+    }
+
+    footer > section > section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #contactInfoFooter > p , footer > section > section > p , footer > section > section > h4{
+        margin: 0;
+    }
+}

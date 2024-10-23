@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-            require_once("./html/nav.html")
+            require_once("./html/nav.php")
         ?>
         <!-- Carrousel Flexbox des nouveaux jeux -->
         <section class="flexBoxRow flexBoxCenter">
@@ -30,6 +30,8 @@
     </body>
     <script src="./js/contactFooter.js"></script>
     <script src="./js/caroussel.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+
     <script>
                 var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {

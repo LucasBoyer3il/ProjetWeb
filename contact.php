@@ -8,12 +8,13 @@
             require_once("./html/header.php")
         ?>
         <?php
-            require_once("./html/nav.html")
+            require_once("./html/nav.php")
         ?>
         <section class="margin flexBoxColumn flexBoxCenter">
-            <h2>Contactez-nous</h2>
-            <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter. Nous serons ravis de vous répondre !</p>
-
+            <section class="widthTexte flexBoxColumn flexBoxCenter">
+                <h2>Contactez-nous</h2>
+                <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter. Nous serons ravis de vous répondre !</p>
+            </section>
             <!-- Section des informations de contact -->
             <section id="contactInfo">
 
@@ -53,6 +54,8 @@
         ?>
     </body>
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
+
     <script>
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onload = function() {

@@ -8,7 +8,7 @@
             require_once("./html/header.php")
         ?>
         <?php
-            require_once("./html/nav.html")
+            require_once("./html/nav.php")
         ?>
         <section id="descriptionContainer">
         </section>
@@ -18,6 +18,7 @@
     </body>
 
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
 
     <script>
         var queryString = window.location.search;
