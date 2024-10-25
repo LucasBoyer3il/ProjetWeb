@@ -4,10 +4,16 @@ require_once("BDDConnect.php");
 if ($_GET['mode'] == 'ajouter') {
     session_start();
     if (isset($_SESSION['user'])) {
+        try {
         $mysqli->query("INSERT INTO panier (idJeux) VALUES ('" . $_GET['id'] . "')");
-        header('Location: ../description.php?id='.$_GET['id'].'');
+        $panierRequest = "SELECT * FROM panier";
+        $panierResponse = $mysqli->query($panierRequest);
+        header('Location: ../description.php?id='.$_GET['id'].'&message=ajoute&nb='.$panierResponse->num_rows.'');
+        } catch (\mysqli_sql_exception $e) {
+            header('Location: ../description.php?id='.$_GET['id'].'&message=erreur');
+        }
     } else {
-        header('Location: ../connexion.php');
+        header('Location: ../connexion.php?message=connectezVous');
     }
 } else if ($_GET['mode'] == 'afficher') {
     $panierRequest = "SELECT * FROM panier";

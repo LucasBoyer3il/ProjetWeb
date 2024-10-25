@@ -13,7 +13,7 @@
         <section class="margin flexBoxColumn flexBoxCenter">
             <section class="flexBoxColumn flexBoxCenter" >
                 <h3 class="flexBoxRow flexBoxCenter">Connectez-vous</h3>
-                <form class="flexBoxColumn flexBoxCenter" action="./php/BDDRequestConnexion.php?mode=connexion" method="post">
+                <form id="formConnexion" class="flexBoxColumn flexBoxCenter" action="./php/BDDRequestConnexion.php?mode=connexion" method="post">
                     <label>Nom d'utilisateur</label>
                     <input type="text" id="login" name="login" required>
 
@@ -37,23 +37,23 @@
             </section>
         </section>
         <?php
-            require_once("./html/footer.html")
+            require_once("./html/footer.html");
+            require_once("./html/alerte.php");
         ?>
     </body>
 
     <script src="./js/contactFooter.js"></script>
     <script src="./js/burgerMenu.js"></script>
 
-    <script>
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var id = urlParams.get('id');
-
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('descriptionContainer').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestDescription.php?id="+id, true);
-        xmlHttp.send();
-    </script>
+    <?php
+        if (isset($_GET['message'])) {
+            if ($_GET['message'] == 'connexionReussi') {
+            alerte("succes","Connexion réussi : ", "Bienvenue sur votre compte");
+        } else if ($_GET['message'] == 'connexionErreur') {
+            alerte("erreur","Erreur de connexion : ", "Utilisateur ou mot de passe incorrect");
+        } else if ($_GET['message'] == 'connectezVous') {
+            alerte("erreur","Merci de vous connectez : ", "Vous pourrez ensuite ajouter des jeux à votre panier");
+        }
+    }
+    ?>
 </html>

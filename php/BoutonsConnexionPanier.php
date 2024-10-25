@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if (isset($_SESSION['user'])) {
         echo ('<a class="margin widthBouton bouton flexBoxRow flexBoxCenter shadow" href="./php/BDDRequestConnexion.php?mode=deconnexion">Déconnexion</a>');
         if ($_SESSION['user'] == 'admin') {

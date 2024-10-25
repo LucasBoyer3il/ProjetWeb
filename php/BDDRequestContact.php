@@ -47,7 +47,7 @@ if (isset($_GET['mode'])) {
 session_start();
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
     echo ("
-    <h3>Insérer un jeu</h3>
+    <h3>Modifier les coordonnées</h3>
     <form id=\"formInsertionModification\" class=\"flexBoxColumn flexBoxFlexStart\" action=\"./php/BDDRequestContact.php?mode=modifier\" method=\"post\" enctype=\"multipart/form-data\">               
         <label>Adresse : </label>
         <input name=\"adresse\" id=\"adresse\" type=\"text\" value=\"".$adresseRow->information."\">

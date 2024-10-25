@@ -7,10 +7,11 @@ if ($_GET['mode'] == 'connexion') {
     $rowConnexion = $responseReq -> fetch_object();
 
     if ($rowConnexion->resultat == 0) {
-        header('Location: ../connexion.php');
+        header('Location: ../connexion.php?message=connexionErreur');
     } else {
         session_start();
         $_SESSION["user"] = $_POST['login'];
+        //afficher message succes
         if ($_SESSION["user"] == 'admin') {
             header('Location: ../insertion.php?mode=insertion');
         } else {
@@ -24,6 +25,9 @@ if ($_GET['mode'] == 'connexion') {
                     VALUES(
                     '" . $_POST['login'] . "',
                     '" . $_POST['motdepasse'] . "')");
+    session_start();
+    $_SESSION["user"] = $_POST['login'];
+    //afficher message succes
     header('Location: ../jeux.php');
 } else if ($_GET['mode'] == 'deconnexion') {
     $mysqli->query("DELETE FROM panier");

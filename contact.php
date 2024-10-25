@@ -33,24 +33,13 @@
             </section>
 
             <!-- Formulaire de contact -->
-            <section>
-                <h3>Envoyez-nous un message</h3>
-                <form class="flexBoxColumn flexBoxCenter" action="traitement_formulaire.php" method="post">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
+            <section id="formMessage" class="flexBoxColumn flexBoxCenter">
 
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" required>
-
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="10" cols="50" required></textarea>
-
-                    <button class="bouton shadow" type="submit">Envoyer</button>
-                </form>
             </section>
         </section>
         <?php
-            require_once("./html/footer.html")
+            require_once("./html/footer.html");
+            require_once("./html/alerte.php")
         ?>
     </body>
     <script src="./js/contactFooter.js"></script>
@@ -63,5 +52,22 @@
         };
         xmlHttp.open("GET", "./php/BDDRequestContact.php", true);
         xmlHttp.send();
-        </script>
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onload = function() {
+            document.getElementById('formMessage').innerHTML = this.responseText;
+        };
+        xmlHttp.open("GET", "./php/BDDRequestMessage.php", true);
+        xmlHttp.send();
+    </script>
+
+    <?php
+        if (isset($_GET['message'])) {
+            if ($_GET['message'] == 'envoye') {
+                alerte("succes","Message envoyé : ", "Nous traiterons votre message le plus rapidement possible");
+            } else if ($_GET['message'] == 'connexionErreur') {
+                alerte("erreur","Erreur de connexion : ", "Utilisateur ou mot de passe incorrect");
+            }
+        }
+    ?>
 </html>

@@ -32,6 +32,14 @@ CREATE TABLE panier
     idJeux INT PRIMARY KEY NOT NULL
 );
 
+CREATE TABLE message
+(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nomUtilisateur VARCHAR(50),
+    emailUtilisateur VARCHAR(50),
+    messageUtilisateur VARCHAR(1000)
+);
+
 INSERT INTO `utilisateurs` (`nomUtilisateur`, `motDePasse`) VALUES ('admin', 'admin'); 
 
 INSERT INTO `presentationjeux` (`nomFichier`, `nomJeu`, `presentationJeu`) VALUES ('kamisado', 'Kamisado', 'Kamisado est un pur jeu de réflexion et de stratégie ! Dans le jeu primé Kamisado, l’objectif est d’être le premier à placer une tour de sa couleur sur l’une des cases de la rangée de base adverse. L’astuce : les joueurs ne peuvent déplacer qu’une tour dont la couleur du symbole correspond à la couleur de la case sur laquelle son adversaire s’est arrêté au coup précédent.');

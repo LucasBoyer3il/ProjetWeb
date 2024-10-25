@@ -8,7 +8,6 @@ if ($_GET['affichage'] == "jeux") {
     $presentationRequest = "SELECT * FROM presentationJeux";
     $responsePresReq = $mysqli->query($presentationRequest);
     while ($rowPresentation = $responsePresReq -> fetch_object()) {
-        $rowDescription = $responseDescReq -> fetch_object();
         if (strlen($rowPresentation->presentationJeu) > 100) {
             $presentationJeu = substr($rowPresentation->presentationJeu,0,100) . "...";
         }
