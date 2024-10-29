@@ -48,15 +48,15 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     if (isset($_GET['nbJmin'])) {
         $nbJmin = $_GET['nbJmin'];
     }
-    $mesCouilles = null;
+    $ageMinimum = null;
     if (isset($_GET['ageMin'])) {
-        $mesCouilles = $_GET['ageMin'];
+        $ageMinimum = $_GET['ageMin'];
     }
     $temps = null;
     if (isset($_GET['temps'])) {
         $temps = $_GET['temps'];
     }
-
+    
     $nombreJoueurReq = null;
     $ageReq = null;
     $tempsReq = null;
@@ -69,15 +69,15 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
         $descriptionRequest = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE nombreJoueurMin <= $nbJmin AND nombreJoueurMax >= $nbJmin";
         echo(" Nombre de joueur = ".$nbJmin);
     } 
-    if ($mesCouilles != null) {
+    if ($ageMinimum != null) {
         //Requête de filtre sur l'age
-        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $mesCouilles";   
+        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $ageMinimum";   
         if ($descriptionRequest != null) {
             $descriptionRequest = $descriptionRequest . " INTERSECT " . $ageReq;
         } else {
             $descriptionRequest = $ageReq;
         }
-        echo(" Age minimum = ".$mesCouilles);
+        echo(" Age minimum = ".$ageMinimum);
     } 
     if ($temps != null) {
         //Requête de filtre sur le temps de jeu
