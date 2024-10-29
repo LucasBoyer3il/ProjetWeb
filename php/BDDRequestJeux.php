@@ -9,7 +9,7 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
 
     echo("<h3>Résultat pour la recherche : ".$nom."</h3>");
     while ($rowPresentation = $responsePresReq -> fetch_object()) {
-        $descriptionRequest = "SELECT nombreJoueur, ageMinimum, tempsJeu FROM descriptionJeux WHERE id = '$rowPresentation->id'";
+        $descriptionRequest = "SELECT nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE id = '$rowPresentation->id'";
         $responseDescReq = $mysqli->query($descriptionRequest);
         $rowDescription = $responseDescReq -> fetch_object();
         if (strlen($rowPresentation->presentationJeu) > 100) {
@@ -23,14 +23,18 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
                     </a>
                     <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>
                     <section class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">");
-                        if (isset($rowDescription->nombreJoueur)) {
-                            echo("<figurecaption>".$rowDescription->nombreJoueur." joueur(s)</figurecaption>");
+                        if (isset($rowDescription->nombreJoueurMin)) {
+                            if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
+                            } else {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+                            }
                         }
                         if (isset($rowDescription->ageMinimum)) {
                             echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
                         }
                         if (isset($rowDescription->tempsJeu)) {
-                            echo("<figurecaption>".$rowDescription->tempsJeu."</figurecaption>");
+                            echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
                         }
         echo("
                     </section>        
@@ -40,15 +44,66 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     }
     $responsePresReq -> free_result();
 } else if (isset($_GET['recherche']) && $_GET['recherche'] == 'filtre') {
-    $temps = $_GET['temps'];
-    $nbJmin = $_GET['nbJmin'];
-    $nbJmax = $_GET['nbJmax'];
-    echo($nbJmin);
-    echo($nbJmax);
-    $descriptionRequest = "SELECT id, nombreJoueur, ageMinimum, tempsJeu FROM descriptionJeux WHERE nombreJoueur < '$nbJmax' AND nombreJoueur > '$nbJmin'";
+    $nbJmin = null;
+    if (isset($_GET['nbJmin'])) {
+        $nbJmin = $_GET['nbJmin'];
+    }
+    $mesCouilles = null;
+    if (isset($_GET['ageMin'])) {
+        $mesCouilles = $_GET['ageMin'];
+    }
+    $temps = null;
+    if (isset($_GET['temps'])) {
+        $temps = $_GET['temps'];
+    }
+
+    $nombreJoueurReq = null;
+    $ageReq = null;
+    $tempsReq = null;
+    $descriptionRequest = null;
+
+    echo("<h3><b>Résultat pour la recherche pour : </b>");
+
+    if ($nbJmin != null) {
+        //Requête de filtre sur le nombre de joueur
+        $descriptionRequest = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE nombreJoueurMin <= $nbJmin AND nombreJoueurMax >= $nbJmin";
+        echo(" Nombre de joueur = ".$nbJmin);
+    } 
+    if ($mesCouilles != null) {
+        //Requête de filtre sur l'age
+        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $mesCouilles";   
+        if ($descriptionRequest != null) {
+            $descriptionRequest = $descriptionRequest . " INTERSECT " . $ageReq;
+        } else {
+            $descriptionRequest = $ageReq;
+        }
+        echo(" Age minimum = ".$mesCouilles);
+    } 
+    if ($temps != null) {
+        //Requête de filtre sur le temps de jeu
+        if ($temps == 1) {
+            //Moins de 30 min
+            $tempsReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE tempsJeu < 30";
+            echo(" Temps de jeu inférieur à 30 min");
+        } else if ($temps == 2) {
+            //Entre 30 et 45 min
+            $tempsReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE tempsJeu >= 30 AND tempsJeu <= 45";
+            echo(" Temps de jeu entre 30 et 45 min");
+        } else if ($temps == 3) {
+            //Plus d'une heure
+            $tempsReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE tempsJeu >= 60";
+            echo(" Temps de jeu supérieur à 1 heure");
+        }
+        if ($descriptionRequest != null) {
+            $descriptionRequest = $descriptionRequest . " INTERSECT " . $tempsReq;
+        } else {
+            $descriptionRequest = $tempsReq;
+        }
+    }
+
+    echo("</h3>");
     $responseDescReq = $mysqli->query($descriptionRequest);
 
-    echo("<h3>Résultat pour la recherche</h3>");
     while ($rowDescription = $responseDescReq -> fetch_object()) {
         $presentationRequest = "SELECT * FROM presentationJeux WHERE id = '$rowDescription->id'";
         $responsePresReq = $mysqli->query($presentationRequest);
@@ -64,14 +119,18 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
                     </a>
                     <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>
                     <section class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">");
-                        if (isset($rowDescription->nombreJoueur)) {
-                            echo("<figurecaption>".$rowDescription->nombreJoueur." joueur(s)</figurecaption>");
+                        if (isset($rowDescription->nombreJoueurMin)) {
+                            if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
+                            } else {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+                            }
                         }
                         if (isset($rowDescription->ageMinimum)) {
                             echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
                         }
                         if (isset($rowDescription->tempsJeu)) {
-                            echo("<figurecaption>".$rowDescription->tempsJeu."</figurecaption>");
+                            echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
                         }
         echo("
                     </section>        
@@ -82,7 +141,7 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     $responseDescReq -> free_result();
 } else if (isset($_GET['affichage']) && $_GET['affichage'] == "jeux") {
 
-    $descriptionRequest = "SELECT nombreJoueur, ageMinimum, tempsJeu FROM descriptionJeux";
+    $descriptionRequest = "SELECT nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux";
     $responseDescReq = $mysqli->query($descriptionRequest);
 
     $presentationRequest = "SELECT * FROM presentationJeux";
@@ -100,14 +159,18 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
                     </a>
                     <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>
                     <section class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">");
-                        if (isset($rowDescription->nombreJoueur)) {
-                            echo("<figurecaption>".$rowDescription->nombreJoueur." joueur(s)</figurecaption>");
+                        if (isset($rowDescription->nombreJoueurMin)) {
+                            if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
+                            } else {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+                            }
                         }
                         if (isset($rowDescription->ageMinimum)) {
                             echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
                         }
                         if (isset($rowDescription->tempsJeu)) {
-                            echo("<figurecaption>".$rowDescription->tempsJeu."</figurecaption>");
+                            echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
                         }
         echo("
                     </section>        
@@ -115,86 +178,5 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     }
     $responseDescReq -> free_result();
     $responsePresReq -> free_result();
-} else if (isset($_GET['affichage']) && $_GET['affichage'] == "filtres") {
-    echo ("
-    <hr/>
-
-    <label>Nombre de joueurs : </label>
-    <section class='flexBoxRow flexBoxCenter'>
-        <label class='flexBoxRow flexBoxCenter'>De&nbsp;</label>
-        <select id=\"nombreJoueurMin\" name=\"nombreJoueurMin\">
-            <option value=\"\"></option>
-            <option value=\"1\">1</option>
-            <option value=\"2\">2</option>
-            <option value=\"3\">3</option>
-            <option value=\"4\">4</option>
-            <option value=\"5\">5</option>
-            <option value=\"6\">6</option>
-            <option value=\"7\">7</option>
-            <option value=\"8\">8</option>
-            <option value=\"9\">9</option>
-            <option value=\"10\">10</option>
-            <option value=\"11\">plus de 10</option>
-        </select>
-        
-        <label class='flexBoxRow flexBoxCenter'>&nbsp;à&nbsp;</label>
-        <select id=\"nombreJoueurMax\" name=\"nombreJoueurMax\">
-            <option value=\"\"></option>
-            <option value=\"1\">1</option>
-            <option value=\"2\">2</option>
-            <option value=\"3\">3</option>
-            <option value=\"4\">4</option>
-            <option value=\"5\">5</option>
-            <option value=\"6\">6</option>
-            <option value=\"7\">7</option>
-            <option value=\"8\">8</option>
-            <option value=\"9\">9</option>
-            <option value=\"10\">10</option>
-            <option value=\"11\">plus de 10</option>
-        </select>
-    </section>
-    <hr/>
-
-    <label>Âge :</label>
-    <section class='flexBoxRow flexBoxCenter'>
-        <label class='flexBoxRow flexBoxCenter'>De&nbsp;</label>
-        <select id=\"age\" name=\"age\">
-            <option value=\"\"></option>
-            <option value=\"6\">6 ans</option>
-            <option value=\"7\">7 ans</option>
-            <option value=\"8\">8 ans</option>
-            <option value=\"9\">9 ans</option>
-            <option value=\"10\">10 ans</option>
-            <option value=\"11\">11 ans</option>
-            <option value=\"12\">12 ans</option>
-        </select>
-
-        <label class='flexBoxRow flexBoxCenter'>&nbsp;à&nbsp;</label>
-        <select id=\"age\" name=\"age\">
-            <option value=\"\"></option>
-            <option value=\"6\">6 ans</option>
-            <option value=\"7\">7 ans</option>
-            <option value=\"8\">8 ans</option>
-            <option value=\"9\">9 ans</option>
-            <option value=\"10\">10 ans</option>
-            <option value=\"11\">11 ans</option>
-            <option value=\"12\">12 ans</option>
-        </select>
-    </section>
-
-    <hr/>
-
-    <label>Temps de jeu : </label>
-    <select id=\"temps\" name=\"temps\">
-        <option value=\"\"></option>
-        <option value=\"1\">moins de 30 min</option>
-        <option value=\"2\">entre 30 min et 45 min</option>
-        <option value=\"3\">entre 1 h et plus</option>
-    </select>
-
-    <hr/>
-
-    <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"submit\">Valider</button>
-    ");
-}
+} 
 $mysqli->close();

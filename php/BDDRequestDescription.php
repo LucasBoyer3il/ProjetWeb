@@ -17,15 +17,19 @@ if(isset($_GET['id'])){
                 <img class=\"descriptionImage\" src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"".$rowPresentation->nomJeu."\"/>
                 <section class=\"flexBoxColumn flexBoxCenter\">
                     <a class=\"margin widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestPanier.php?mode=ajouter&id=".$id."\">Ajouter au panier</a>");
-                if (isset($rowDescription->nombreJoueur)) {
-                    echo("<figurecaption class=\"description\">Nombre de joueur : ".$rowDescription->nombreJoueur."</figurecaption>");
-                }
-                if (isset($rowDescription->ageMinimum)) {
-                    echo("<figurecaption class=\"description\">Âge minimum requis : ".$rowDescription->ageMinimum." ans</figurecaption>");
-                }
-                if (isset($rowDescription->tempsJeu)) {
-                    echo("<figurecaption class=\"description\">Temps de jeu : ".$rowDescription->tempsJeu."</figurecaption>");
-                }
+                        if (isset($rowDescription->nombreJoueurMin)) {
+                            if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
+                            } else {
+                                echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+                            }
+                        }
+                        if (isset($rowDescription->ageMinimum)) {
+                            echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
+                        }
+                        if (isset($rowDescription->tempsJeu)) {
+                            echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
+                        }
     echo(
                 "</section>
             </section>
