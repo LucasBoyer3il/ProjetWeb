@@ -49,6 +49,7 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
         $nbJmin = $_GET['nbJmin'];
     }
     $ageMinimum = null;
+    echo($_GET["ageMin"]);
     if (isset($_GET['ageMin'])) {
         $ageMinimum = $_GET['ageMin'];
     }

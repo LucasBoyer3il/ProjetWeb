@@ -36,7 +36,7 @@
                         <hr/>
 
                         <label>Âge :</label>
-                        <select id="ageMinimum" name="ageMinimum">
+                        <select id="age" name="age">
                             <option value=""></option>
                             <option value="6">6 ans</option>
                             <option value="7">7 ans</option>
@@ -102,15 +102,14 @@
             xmlHttp.send();
         } else if (param == "filtre"){
             var nbJmin = urlParams.get("nbJmin");
-            var nbJmax = urlParams.get("nbJmax");
-            var agemin = urlParams.get("agemin");
-            var agemax = urlParams.get("agemax");
+            var agemin = urlParams.get("ageMin");
+            console.log(agemin);
             var temps = urlParams.get("temps");
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onload = function() {
                 document.getElementById("jeuxContainer").innerHTML = this.responseText;
             };
-            xmlHttp.open("GET", "./php/BDDRequestJeux.php?recherche=filtre&nbJmin="+nbJmin+"&nbJmax="+nbJmax+"&agemin="+agemin+"&agemax="+agemax+"&temps="+temps, true);
+            xmlHttp.open("GET", "./php/BDDRequestJeux.php?recherche=filtre&nbJmin="+nbJmin+"&agemin="+agemin+"&temps="+temps, true);
             xmlHttp.send();
         }
     </script>
