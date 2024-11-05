@@ -19,8 +19,11 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
                 <label>Description du jeu : </label>
                 <textarea name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\" rows=\"10\" cols=\"30\" required></textarea>
 
-                <label>Nombre de personne : </label>
-                <input name=\"nombreJoueur\" id=\"nombreJoueur\" type=\"text\">
+                <label>Nombre de personne minimum : </label>
+                <input name=\"nombreJoueurMin\" id=\"nombreJoueurMin\" type=\"text\">
+
+                <label>Nombre de personne maximum : </label>
+                <input name=\"nombreJoueurMax\" id=\"nombreJoueurMax\" type=\"text\">
 
                 <label>Âge minimal : </label>
                 <input name=\"ageMinimum\" id=\"ageMinimum\" type=\"text\">
@@ -59,8 +62,11 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
                 <label>Description du jeu : </label>
                 <textarea name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\" rows=\"10\" cols=\"30\" required>".$rowDescription->description."</textarea>
 
-                <label>Nombre de personne : </label>
-                <input name=\"nombreJoueur\" id=\"nombreJoueur\" type=\"text\" value=\"".$rowDescription->nombreJoueur."\">
+                <label>Nombre de personne minimum : </label>
+                <input name=\"nombreJoueurMin\" id=\"nombreJoueurMin\" type=\"text\" value=\"".$rowDescription->nombreJoueurMin."\">
+
+                <label>Nombre de personne maximum : </label>
+                <input name=\"nombreJoueurMax\" id=\"nombreJoueurMax\" type=\"text\" value=\"".$rowDescription->nombreJoueurMax."\">
 
                 <label>Âge minimal : </label>
                 <input name=\"ageMinimum\" id=\"ageMinimum\" type=\"text\" value=\"".$rowDescription->ageMinimum."\">

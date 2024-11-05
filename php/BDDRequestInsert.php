@@ -7,11 +7,12 @@ if (isset($_GET['id'])) {
     $mysqli->query("UPDATE presentationjeux 
                     SET nomFichier = '" . strtolower(str_replace(' ','',$_POST['nomJeu'])) . "',
                     nomJeu = '" . $_POST['nomJeu'] . "',
-                    presentationJeu = '" . $_POST['presentationJeu'] . "'
+                    presentationJeu = '" . str_replace("'", "\'", $_POST['presentationJeu']) . "'
                     WHERE id=$id");
     $mysqli->query("UPDATE descriptionJeux 
                     SET description = '" . $_POST['descriptionJeu'] . "',
-                    nombreJoueur = '" . $_POST['nombreJoueur'] . "',
+                    nombreJoueurMin = '" . $_POST['nombreJoueurMin'] . "',
+                    nombreJoueurMax = '" . $_POST['nombreJoueurMax'] . "',
                     ageMinimum = '" . $_POST['ageMinimum'] . "',
                     tempsJeu = '" . $_POST['tempsJeu'] . "'
                     WHERE id=$id");
@@ -21,8 +22,9 @@ if (isset($_GET['id'])) {
                     '" . $_POST['nomJeu'] . "',
                     '" . $_POST['presentationJeu'] . "')");
     $mysqli->query("INSERT INTO descriptionJeux (description, nombreJoueur, ageMinimum, tempsJeu) 
-                    VALUES ('" . $_POST['descriptionJeu'] . "',
-                    '" . $_POST['nombreJoueur'] . "',
+                    VALUES ('" .addSlashes(nl2br($_POST['descriptionJeu'])) . "',
+                    '" . $_POST['nombreJoueurMin'] . "',
+                    '" . $_POST['nombreJoueurMax'] . "'
                     '" . $_POST['ageMinimum'] . "',
                     '" . $_POST['tempsJeu'] . "')");
 }

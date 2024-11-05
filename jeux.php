@@ -10,7 +10,7 @@
         <?php
         require_once("./html/nav.php");
         ?>
-        <section class="flexBoxColumn flexBoxCenter">
+        <section class="margin flexBoxColumn flexBoxCenter">
             <h2>Jeux de société</h2>
               <section class="widthFull flexBoxRow flexBoxCenterJustify flexBoxFlexStartAlign">
                 <section id="filterContainer" class="flexBoxColumn flexBoxCenterAlign shadow">
@@ -62,7 +62,7 @@
     <button class="widthFull bouton flexBoxRow flexBoxCenter shadow" type="submit">Valider</button>
                     </form>
                 </section>
-                <section>
+                <section id="jeuxEtRechercheContainer" class="flexBoxColumn flexBoxCenterAlign">
                     <form id="recherche" action="./php/TraitementRecherche.php?recherche=nom" method="post">
                             <input name="rechercherValue" id="rechercherValue" class="shadow" type="text" placeholder="Nom à rechercher : ">
                             <button class="boutonRechercher shadow">Rechercher</button>

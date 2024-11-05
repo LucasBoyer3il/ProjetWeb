@@ -18,6 +18,6 @@
     $url = $_SERVER['PHP_SELF'];
     $urlFichier = str_replace('/ProjetWeb/',"",$url);
     $urlNomFichier =  str_replace(".php", "", $urlFichier);
-    echo("<link rel='stylesheet' href='./css".$urlNomFichier.".css' type='text/css'>");
+    echo("<link rel='stylesheet' href='./css/".$urlNomFichier.".css' type='text/css'>");
 
 ?>
