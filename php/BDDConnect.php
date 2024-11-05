@@ -12,6 +12,7 @@ $db = "jeuxdesociete";
 $user="root";
 $password="";
 */
+
 $mysqli = new mysqli($server,$user,$password,$db);
 
 // Check connection

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        require_once("./html/head.html")
+        require_once("./html/head.php")
     ?>
     <body>
         <?php
@@ -21,16 +21,5 @@
 
     <script src="./js/contactFooter.js"></script>
     <script src="./js/burgerMenu.js"></script>
-
-    <script>
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('panierContainer').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestPanier.php?mode=afficher", true);
-        xmlHttp.send();
-    </script>
+    <script src="./js/panier.js"></script>
 </html>

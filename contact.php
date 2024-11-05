@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        require_once("./html/head.html")
+        require_once("./html/head.php")
     ?>
     <body>
         <?php
@@ -44,22 +44,7 @@
     </body>
     <script src="./js/contactFooter.js"></script>
     <script src="./js/burgerMenu.js"></script>
-
-    <script>
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('contactInfo').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestContact.php", true);
-        xmlHttp.send();
-
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('formMessage').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestMessage.php", true);
-        xmlHttp.send();
-    </script>
+    <script src="./js/contact.js"></script>
 
     <?php
         if (isset($_GET['message'])) {

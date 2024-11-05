@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        require_once("./html/head.html")
+        require_once("./html/head.php")
     ?>
     <body>
         <?php

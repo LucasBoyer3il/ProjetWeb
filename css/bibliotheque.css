@@ -1,13 +1,6 @@
 @import url("form.css");
-@import url("description.css");
-@import url("panier.css");
-@import url("jeux.css");
-@import url("insertion.css");
-@import url("actualite.css");
-@import url("index.css");
 @import url("footer.css");
 @import url("burgerMenu.css");
-@import url("contact.css");
 
 * {
     --general: rgb(59, 46, 98);
@@ -127,6 +120,36 @@ b {
         margin: 20px;
     }
     
+    .alert {
+        padding: 20px;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+        position:absolute;
+        z-index:100;
+        right: 80px;
+        top: 300px;
+    }
+    
+    .alert.succes {background-color: var(--general);}
+    .alert.erreur {background-color: var(--precis);}
+    
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .closebtn:hover {
+        color: black;
+    }
+
     /* DEBUT FLEXBOX */
         .flexBoxRow { 
             display: flex;
@@ -238,8 +261,9 @@ b {
     }
 
     .icons {
-        width: 4%;
+        width: 24px;
         padding: 5px;
+        border-radius: 11px;
     }
 
     .footerText {
@@ -285,5 +309,10 @@ b {
 
     textarea {
         width: 300px;
+    }
+
+    .alert {
+        right: 80px;
+        top: 220px;
     }
 }

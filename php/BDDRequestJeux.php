@@ -48,10 +48,9 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     if (isset($_GET['nbJmin'])) {
         $nbJmin = $_GET['nbJmin'];
     }
-    $ageMinimum = null;
-    echo($_GET["ageMin"]);
+    $age = null;
     if (isset($_GET['ageMin'])) {
-        $ageMinimum = $_GET['ageMin'];
+        $age = $_GET['ageMin'];
     }
     $temps = null;
     if (isset($_GET['temps'])) {
@@ -70,15 +69,15 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
         $descriptionRequest = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE nombreJoueurMin <= $nbJmin AND nombreJoueurMax >= $nbJmin";
         echo(" Nombre de joueur = ".$nbJmin);
     } 
-    if ($ageMinimum != null) {
+    if ($age != null) {
         //Requête de filtre sur l'age
-        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $ageMinimum";   
+        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $age";   
         if ($descriptionRequest != null) {
             $descriptionRequest = $descriptionRequest . " INTERSECT " . $ageReq;
         } else {
             $descriptionRequest = $ageReq;
         }
-        echo(" Age minimum = ".$ageMinimum);
+        echo(" Age minimum = ".$age);
     } 
     if ($temps != null) {
         //Requête de filtre sur le temps de jeu
@@ -102,44 +101,48 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
         }
     }
 
-    echo("</h3>");
-    $responseDescReq = $mysqli->query($descriptionRequest);
+    if (!($nbJmin == null && $age == null && $temps == null)) {
+        echo("</h3>");
+        $responseDescReq = $mysqli->query($descriptionRequest);
 
-    while ($rowDescription = $responseDescReq -> fetch_object()) {
-        $presentationRequest = "SELECT * FROM presentationJeux WHERE id = '$rowDescription->id'";
-        $responsePresReq = $mysqli->query($presentationRequest);
-        $rowPresentation = $responsePresReq -> fetch_object();
-        if (strlen($rowPresentation->presentationJeu) > 100) {
-            $presentationJeu = substr($rowPresentation->presentationJeu,0,100) . "...";
-        }
-        echo ("
-                <section class=\"flexBoxColumn flexBoxCenter shadow white\">
-                    <h3 class=\"flexBoxRow flexBoxCenter\">".$rowPresentation->nomJeu."</h3>
-                    <a class=\"imageContainer\"  href=\"description.php?id=".$rowPresentation->id."\">
-                        <img src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"$rowPresentation->nomJeu\"/>
-                    </a>
-                    <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>
-                    <section class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">");
-                        if (isset($rowDescription->nombreJoueurMin)) {
-                            if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
-                                echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
-                            } else {
-                                echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+        while ($rowDescription = $responseDescReq -> fetch_object()) {
+            $presentationRequest = "SELECT * FROM presentationJeux WHERE id = '$rowDescription->id'";
+            $responsePresReq = $mysqli->query($presentationRequest);
+            $rowPresentation = $responsePresReq -> fetch_object();
+            if (strlen($rowPresentation->presentationJeu) > 100) {
+                $presentationJeu = substr($rowPresentation->presentationJeu,0,100) . "...";
+            }
+            echo ("
+                    <section class=\"flexBoxColumn flexBoxCenter shadow white\">
+                        <h3 class=\"flexBoxRow flexBoxCenter\">".$rowPresentation->nomJeu."</h3>
+                        <a class=\"imageContainer\"  href=\"description.php?id=".$rowPresentation->id."\">
+                            <img src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"$rowPresentation->nomJeu\"/>
+                        </a>
+                        <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>
+                        <section class=\"widthFull flexBoxRow flexBoxSpaceEvenly\">");
+                            if (isset($rowDescription->nombreJoueurMin)) {
+                                if ($rowDescription->nombreJoueurMin == $rowDescription->nombreJoueurMax) {
+                                    echo("<figurecaption>".$rowDescription->nombreJoueurMin." joueur(s)</figurecaption>");
+                                } else {
+                                    echo("<figurecaption>".$rowDescription->nombreJoueurMin."-".$rowDescription->nombreJoueurMax." joueur(s)</figurecaption>");
+                                }
                             }
-                        }
-                        if (isset($rowDescription->ageMinimum)) {
-                            echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
-                        }
-                        if (isset($rowDescription->tempsJeu)) {
-                            echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
-                        }
-        echo("
-                    </section>        
-                </section>");
-                $responsePresReq -> free_result();
+                            if (isset($rowDescription->ageMinimum)) {
+                                echo("<figurecaption>< ".$rowDescription->ageMinimum." ans</figurecaption>");
+                            }
+                            if (isset($rowDescription->tempsJeu)) {
+                                echo("<figurecaption>".$rowDescription->tempsJeu." min</figurecaption>");
+                            }
+            echo("
+                        </section>        
+                    </section>");
+                    $responsePresReq -> free_result();
 
+        }
+        $responseDescReq -> free_result();
+    } else {
+        echo ("Aucun filtre sélectionné");
     }
-    $responseDescReq -> free_result();
 } else if (isset($_GET['affichage']) && $_GET['affichage'] == "jeux") {
 
     $descriptionRequest = "SELECT nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux";

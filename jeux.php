@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <?php
-        require_once("./html/head.html")
+        require_once("./html/head.php")
     ?>
     <body>
         <?php
             require_once("./html/header.php")
         ?>
         <?php
-        require_once("./html/nav.php")
+        require_once("./html/nav.php");
         ?>
         <section class="flexBoxColumn flexBoxCenter">
             <h2>Jeux de société</h2>
@@ -79,39 +79,5 @@
     </body>
     <script src="./js/contactFooter.js"></script>
     <script src="./js/burgerMenu.js"></script>
-
-    <script>
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var param = urlParams.get("recherche");
-        console.log(param);
-        if (param == null) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onload = function() {
-                document.getElementById("jeuxContainer").innerHTML = this.responseText;
-            };
-            xmlHttp.open("GET", "./php/BDDRequestJeux.php?affichage=jeux", true);
-            xmlHttp.send();
-        } else if (param == "nom"){
-            var nom = urlParams.get("nom");
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onload = function() {
-                document.getElementById("jeuxContainer").innerHTML = this.responseText;
-            };
-            xmlHttp.open("GET", "./php/BDDRequestJeux.php?recherche=nom&nom="+nom, true);
-            xmlHttp.send();
-        } else if (param == "filtre"){
-            var nbJmin = urlParams.get("nbJmin");
-            var agemin = urlParams.get("ageMin");
-            console.log(agemin);
-            var temps = urlParams.get("temps");
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onload = function() {
-                document.getElementById("jeuxContainer").innerHTML = this.responseText;
-            };
-            xmlHttp.open("GET", "./php/BDDRequestJeux.php?recherche=filtre&nbJmin="+nbJmin+"&agemin="+agemin+"&temps="+temps, true);
-            xmlHttp.send();
-        }
-    </script>
-
+    <script src="./js/jeux.js"></script>
 </html>

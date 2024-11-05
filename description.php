@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-        require_once("./html/head.html")
+        require_once("./html/head.php")
     ?>
     <body>
         <?php
@@ -20,19 +20,7 @@
 
     <script src="./js/contactFooter.js"></script>
     <script src="./js/burgerMenu.js"></script>
-
-    <script>
-        var queryString = window.location.search;
-        var urlParams = new URLSearchParams(queryString);
-        var id = urlParams.get('id');
-
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onload = function() {
-            document.getElementById('descriptionContainer').innerHTML = this.responseText;
-        };
-        xmlHttp.open("GET", "./php/BDDRequestDescription.php?id="+id, true);
-        xmlHttp.send();
-    </script>
+    <script src="./js/description.js"></script>
 
     <?php
         if (isset($_GET['message'])) {
