@@ -71,7 +71,7 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     } 
     if ($age != null) {
         //Requête de filtre sur l'age
-        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum >= $age";   
+        $ageReq = "SELECT id, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux WHERE ageMinimum <= $age";   
         if ($descriptionRequest != null) {
             $descriptionRequest = $descriptionRequest . " INTERSECT " . $ageReq;
         } else {

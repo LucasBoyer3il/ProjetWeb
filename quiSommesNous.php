@@ -12,11 +12,32 @@
         ?>
         <section class="flexBoxColumn flexBoxCenter margin">
             <!-- Section des photos du magasin avec texte descriptif -->
-            <section class="widthSection flexBoxColumn flexBoxCenter">
+            <section class="widthTexte flexBoxColumn flexBoxCenter">
                 <h2>Qui sommes-nous ?</h2>
                 <p>
                     Bienvenue au Chaudron Ludique, votre boutique spécialisée dans les jeux de société, située à Rodez. Notre mission est de vous offrir un espace dédié au divertissement, où l'on peut découvrir et jouer à une multitude de jeux adaptés à tous les âges et à tous les goûts.
                 </p>
+                                <!-- Section des valeurs de l'entreprise -->
+                <section class="flexBoxColumn">
+                    <h3>Nos valeurs</h3>
+                    <p>
+                        Chez le Chaudron Ludique, nous croyons que les jeux de société sont bien plus qu'un simple divertissement. Ils sont un moyen de renforcer les liens familiaux, de développer des compétences stratégiques et de partager des moments inoubliables. Nous nous engageons à :
+                    </p>
+                    <ul>
+                        <li>Offrir un large choix de jeux pour tous les âges et tous les niveaux.</li>
+                        <li>Créer une communauté de joueurs passionnés.</li>
+                        <li>Organiser des événements ludiques pour encourager l'interaction et le plaisir de jouer ensemble.</li>
+                        <li>Proposer des conseils personnalisés pour que chacun trouve le jeu idéal.</li>
+                    </ul>
+                </section>
+
+                <!-- Section pour l'histoire du magasin -->
+                <section class="flexBoxColumn">
+                    <h3>Notre histoire</h3>
+                    <p>
+                        Le Chaudron Ludique a ouvert ses portes en avril 2023 à Rodez, avec l'objectif de devenir un lieu de rencontre incontournable pour les amateurs de jeux de société. Depuis, nous n'avons cessé de grandir, en étoffant notre catalogue et en multipliant les événements pour satisfaire tous les goûts. Nous sommes fiers de faire partie de la communauté ludique de Rodez et de contribuer à faire découvrir ce merveilleux univers à de nouveaux passionnés.
+                    </p>
+                </section>
                 <section class="flexBoxColumn flexBoxCenter">
                     <h3>Découvrez notre boutique</h3>
 
@@ -44,28 +65,6 @@
                             Nous avons également aménagé un espace dédié pour vous permettre d'essayer les jeux sur place. Que vous veniez seul, en famille ou entre amis, cet espace convivial est parfait pour des moments de détente et de découverte.
                         </figurecaption>
                     </section>
-                </section>
-
-                <!-- Section des valeurs de l'entreprise -->
-                <section class="flexBoxColumn">
-                    <h3>Nos valeurs</h3>
-                    <p>
-                        Chez le Chaudron Ludique, nous croyons que les jeux de société sont bien plus qu'un simple divertissement. Ils sont un moyen de renforcer les liens familiaux, de développer des compétences stratégiques et de partager des moments inoubliables. Nous nous engageons à :
-                    </p>
-                    <ul>
-                        <li>Offrir un large choix de jeux pour tous les âges et tous les niveaux.</li>
-                        <li>Créer une communauté de joueurs passionnés.</li>
-                        <li>Organiser des événements ludiques pour encourager l'interaction et le plaisir de jouer ensemble.</li>
-                        <li>Proposer des conseils personnalisés pour que chacun trouve le jeu idéal.</li>
-                    </ul>
-                </section>
-
-                <!-- Section pour l'histoire du magasin -->
-                <section class="flexBoxColumn">
-                    <h3>Notre histoire</h3>
-                    <p>
-                        Le Chaudron Ludique a ouvert ses portes en avril 2023 à Rodez, avec l'objectif de devenir un lieu de rencontre incontournable pour les amateurs de jeux de société. Depuis, nous n'avons cessé de grandir, en étoffant notre catalogue et en multipliant les événements pour satisfaire tous les goûts. Nous sommes fiers de faire partie de la communauté ludique de Rodez et de contribuer à faire découvrir ce merveilleux univers à de nouveaux passionnés.
-                    </p>
                 </section>
             </section>
         </section>

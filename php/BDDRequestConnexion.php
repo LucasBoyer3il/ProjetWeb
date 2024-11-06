@@ -33,6 +33,7 @@ if ($_GET['mode'] == 'connexion') {
     $mysqli->query("DELETE FROM panier");
     session_start();
     session_unset();
+    session_destroy();
     header('Location: ../jeux.php');
 }
 $mysqli->close();

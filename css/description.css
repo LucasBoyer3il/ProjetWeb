@@ -1,8 +1,3 @@
-.descriptionImage {
-    width: 520px;
-    height: 520px;
-}
-
 #descriptionContainer {
     display: flex;
     flex-direction: column;
@@ -28,19 +23,10 @@
 }
 
 
-@media only screen and (max-width: 850px) {
-
-    .descriptionImage {
-        width: 300px;
-        height: 300px;
-    }
+@media only screen and (max-width: 1420px) {
 
     #descriptionContainer > section {
-        width: 350px;
-        margin: 50px;
-    }
-
-    nav {
-        display: none !important;
+        width: 350px !important;
+        margin: 50px !important;
     }
 }

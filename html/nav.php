@@ -8,7 +8,6 @@
     <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
     <div class="overlay-content flexBoxColumn flexBoxCenter">
         <a class="boutonNav flexBoxRow flexBoxCenter" href="jeux.php">Jeux</a>
-        <a class="boutonNav flexBoxRow flexBoxCenter" href="actualite.php">Actualité</a>
         <a class="boutonNav flexBoxRow flexBoxCenter" href="quiSommesNous.php">Qui nous sommes</a>
         <a class="boutonNav flexBoxRow flexBoxCenter" href="contact.php">Contact</a>
         <?php

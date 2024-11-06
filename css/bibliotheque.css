@@ -113,7 +113,7 @@ b {
     }
 
     .widthTexte {
-        width: 500px;
+        width: 700px;
     }
 
     .margin {
@@ -249,6 +249,11 @@ b {
         object-fit: contain;
     }
 
+    .descriptionImage {
+        width: 520px;
+        height: 520px;
+    }
+
     .imageContainer {
         height: 300px;
         width: 300px;
@@ -281,8 +286,12 @@ b {
     }
 /* FIN CSS CODE COMMUN */
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 1420px) {
 
+    .widthFull {
+        width: auto;
+    }
+    
     header {
         border-bottom: solid 2px var(--precis);
     }
@@ -291,15 +300,12 @@ b {
         display: none !important;
     }
 
-    .widthTexte {
-        width: auto;
+    nav {
+        display: none !important;
     }
 
-
-
-    .mySlides {
+    .widthTexte {
         width: auto;
-        height: auto;
     }
 
     iframe {
@@ -307,8 +313,13 @@ b {
         height: 300px;
     }
 
-    textarea {
+    .descriptionImage {
         width: 300px;
+        height: 300px;
+    }
+
+    textarea {
+        width: 250px;
     }
 
     .alert {

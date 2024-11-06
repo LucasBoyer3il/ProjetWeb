@@ -9,7 +9,7 @@
         </section>
         <section class="flexBoxColumn">
         <?php
-        require_once("./php/BoutonsConnexionPanier.php")
+        require_once("./php/BoutonsConnexionPanier.php");
         ?>
         </section>
     </header>

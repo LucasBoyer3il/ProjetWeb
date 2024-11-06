@@ -1,6 +1,7 @@
 <?php
 require_once("BDDConnect.php");
 
+
 if ($_GET['mode'] == 'ajouter') {
     session_start();
     if (isset($_SESSION['user'])) {
@@ -15,7 +16,7 @@ if ($_GET['mode'] == 'ajouter') {
     } else {
         header('Location: ../connexion.php?message=connectezVous');
     }
-} else if ($_GET['mode'] == 'afficher') {
+} else if ($_GET['mode'] == 'afficher') {   
     $panierRequest = "SELECT * FROM panier";
     $panierResponse = $mysqli->query($panierRequest);
     if ($panierResponse->num_rows == 0) {
@@ -39,7 +40,7 @@ if ($_GET['mode'] == 'ajouter') {
                                 <img src=\"./img/".$rowPresentation->nomFichier.".png\" alt=\"$rowPresentation->nomJeu\"/>
                             </a>
                             <figurecaption class=\"widthFull flexBoxRow flexBoxCenter\">".$presentationJeu."</figurecaption>  
-                            <a class=\"margin widthAuto bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestPanier.php?mode=supprimer&id=".$rowpanier->idJeux."\">Supprimer du panier</a>     
+                            <a class=\"widthBouton bouton flexBoxRow flexBoxCenter shadow\" href=\"./php/BDDRequestPanier.php?mode=supprimer&id=".$rowpanier->idJeux."\">Supprimer</a>
                         </section>");
         } 
     }
