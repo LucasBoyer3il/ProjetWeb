@@ -10,13 +10,9 @@
         <?php
             require_once("./html/nav.php")
         ?>
-        <section id="insertionEtJeuContainer">
+        <section class="flexBoxRow flexBoxCenter">
             <section id="insertionContainer"></section>
             <section id="listeDesJeux">
-                <form id="recherche" class="flexBoxRow flexBoxCenter" action="insertion.php" method="post">
-                    <input name="rechercherValue" id="rechercherValue" type="text" placeholder="Nom à rechercher : ">
-                    <button class="widthBouton bouton flexBoxRow flexBoxCenter shadow">Rechercher</button>
-                </form>
                 <section id=sectionimgdesc>
                 </section>
             </section>
@@ -26,5 +22,6 @@
         ?>
     </body>
     <script src="./js/contactFooter.js"></script>
+    <script src="./js/burgerMenu.js"></script>
     <script src="./js/insertion.js"></script>
 </html>

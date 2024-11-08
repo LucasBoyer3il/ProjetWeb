@@ -2,6 +2,9 @@
 require_once("BDDConnect.php");
 
 if (isset($_GET['id'])) {
+    //********************************
+    // MODIFICATION D'UN JEU EN BDD
+    //********************************
     $id = $_GET['id'];
     echo($id);
     $mysqli->query("UPDATE presentationJeux 
@@ -17,14 +20,18 @@ if (isset($_GET['id'])) {
                     tempsJeu = '" . $_POST['tempsJeu'] . "'
                     WHERE id=$id");
 } else {
+    //********************************
+    // INSERTION D'UN JEU EN BDD
+    //********************************
+    echo("INSERTION");
     $mysqli->query("INSERT INTO presentationJeux (nomFichier, nomJeu, presentationJeu) 
                     VALUES ('" . strtolower(str_replace(' ','',$_POST['nomJeu'])) . "',
                     '" . $_POST['nomJeu'] . "',
-                    '" . $_POST['presentationJeu'] . "')");
-    $mysqli->query("INSERT INTO descriptionJeux (description, nombreJoueur, ageMinimum, tempsJeu) 
-                    VALUES ('" .str_replace("'", "\'",(nl2br($_POST['descriptionJeu']))) . "',
+                    '" . str_replace("'", "\'", $_POST['presentationJeu']) . "')");
+    $mysqli->query("INSERT INTO descriptionJeux (description, nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu) 
+                    VALUES ('" . nl2br(str_replace("'", "\'", $_POST['descriptionJeu'])) . "',
                     '" . $_POST['nombreJoueurMin'] . "',
-                    '" . $_POST['nombreJoueurMax'] . "'
+                    '" . $_POST['nombreJoueurMax'] . "',
                     '" . $_POST['ageMinimum'] . "',
                     '" . $_POST['tempsJeu'] . "')");
 }

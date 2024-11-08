@@ -18,6 +18,9 @@ $horairesRow = $horairesResponse -> fetch_object();
 
 if (isset($_GET['mode'])) {
     if ($_GET['mode'] == 'footer') {
+        //*******************************************
+        // AFFICHAGE CONTACT DANS LE FOOTER
+        //*******************************************
         echo ('
         <h3>Nos coordonnées</h3>
         <p><b>Adresse : </b>'.$adresseRow->information.'</p>
@@ -29,23 +32,25 @@ if (isset($_GET['mode'])) {
         </ul>
     ');
     } else if ($_GET['mode'] == 'modifier') {
+        //*******************************************
+        // MODIFICATIONS CONTACT
+        //*******************************************
         $mysqli->query("UPDATE contact
-        SET information = '".str_replace("'", "\'", $_POST['adresse'])."'
-        WHERE nom = 'Adresse'");
+                        SET information = '".str_replace("'", "\'", $_POST['adresse'])."' WHERE nom = 'Adresse'");
         $mysqli->query("UPDATE contact
-            SET information = '".$_POST['telephone']."'
-            WHERE nom = 'Telephone'");
+                        SET information = '".$_POST['telephone']."' WHERE nom = 'Telephone'");
         $mysqli->query("UPDATE contact
-            SET information = '".$_POST['email']."'
-            WHERE nom = 'Email'");
+                        SET information = '".$_POST['email']."' WHERE nom = 'Email'");
         $mysqli->query("UPDATE contact
-            SET information = '".$_POST['horaires']."'
-            WHERE nom = 'Horaires'");
+                        SET information = '". nl2br($_POST['horaires']) ."' WHERE nom = 'Horaires'");
         header('Location: ../contact.php');
     }
 } else {
 session_start();
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
+    //*******************************************
+    // AFFICHAGE DU FORM EN MODE MODIFICATION PAR ADMIN
+    //*******************************************
     echo ("
     <h3>Modifier les coordonnées</h3>
     <form id=\"formInsertionModification\" class=\"flexBoxColumn flexBoxFlexStart\" action=\"./php/BDDRequestContact.php?mode=modifier\" method=\"post\" enctype=\"multipart/form-data\">               
@@ -59,12 +64,15 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
         <input name=\"email\" id=\"email\" type=\"text\" value=\"".$emailRow->information."\">
 
         <label>Horaires : </label>
-        <textarea name=\"horaires\" id=\"horaires\" type=\"text\" rows=\"10\" cols=\"30\">$horairesRow->information</textarea>
+        <textarea name=\"horaires\" id=\"horaires\" type=\"text\" rows=\"10\" cols=\"30\">".str_replace("<br />", "",$horairesRow->information)."</textarea>
 
         <button class=\"widthFull bouton flexBoxRow flexBoxCenter shadow\" type=\"submit\">Modifier</button>
     </form>
     ");
 } else {
+        //*******************************************
+        // AFFICHAGE DU FORM
+        //*******************************************
         echo ('
             <h3>Nos coordonnées</h3>
             <p><b>Adresse : </b>'.$adresseRow->information.'</p>

@@ -1,11 +1,14 @@
 <?php
 require_once("BDDConnect.php");
 
-if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
+if (isset($_GET['mode'])) {
     if ($_GET['mode'] == "insertion") {
+        //*******************************************
+        // AFFICHAGE FORM VIDE PAGE GESTION DES JEUX 
+        //*******************************************
         echo ("
             <h3>Insérer un jeu</h3>
-            <form id=\"formInsertionModification\" class=\"flexBoxColumn flexBoxFlexStart\" action=\"./php/BDDRequestInsert.php?id=". $_GET['id'] ."\" method=\"post\" enctype=\"multipart/form-data\">               
+            <form id=\"formInsertionModification\" class=\"flexBoxColumn flexBoxFlexStart\" action=\"./php/BDDRequestInsert.php?\" method=\"post\" enctype=\"multipart/form-data\">               
                 <label>Nom du jeu : </label>
                 <input name=\"nomJeu\" id=\"nomJeu\" type=\"text\" required>
             
@@ -35,6 +38,9 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
             </form>
             ");
     } else if ($_GET['mode'] == "modifier") {
+        //**********************************************
+        // AFFICHAGE FORM REMPLIT PAGE GESTION DES JEUX 
+        //**********************************************
         $id = $_GET['id'];
         $descriptionRequest = "SELECT * FROM descriptionJeux WHERE id = ".$id."";
         $responseDescReq = $mysqli->query($descriptionRequest);
@@ -57,10 +63,10 @@ if (isset($_GET['mode'])) { //ET RAJOUTER CONDITION CONNECTE EN TANT QUADMIN
                 <ul></ul>
 
                 <label>Présentation du jeu : </label>
-                <textarea name=\"presentationJeu\" id=\"presentationJeu\" type=\"text\" rows=\"10\" cols=\"30\" required>".$rowPresentation->presentationJeu."</textarea>
+                <textarea name=\"presentationJeu\" id=\"presentationJeu\" type=\"text\" rows=\"10\" cols=\"30\" required>".str_replace("<br />", "",$rowPresentation->presentationJeu)."</textarea>
             
                 <label>Description du jeu : </label>
-                <textarea name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\" rows=\"10\" cols=\"30\" required>".$rowDescription->description."</textarea>
+                <textarea name=\"descriptionJeu\" id=\"descriptionJeu\" type=\"text\" rows=\"10\" cols=\"30\" required>".str_replace("<br />", "",$rowDescription->description)."</textarea>
 
                 <label>Nombre de personne minimum : </label>
                 <input name=\"nombreJoueurMin\" id=\"nombreJoueurMin\" type=\"text\" value=\"".$rowDescription->nombreJoueurMin."\">

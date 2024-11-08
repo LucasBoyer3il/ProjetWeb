@@ -84,11 +84,6 @@ input[type=text], input[type=file], input[type=password] {
     justify-content: space-around;
 }
 
-#insertionEtJeuContainer {
-    display: flex;
-    flex-direction: row;
-}
-
 #recherche {
     display: flex;
     flex-direction: row;
@@ -172,11 +167,6 @@ input[type=text], input[type=file], textarea, select {
     justify-content: space-around;
 }
 
-#insertionEtJeuContainer {
-    display: flex;
-    flex-direction: row;
-}
-
 #recherche {
     display: flex;
     flex-direction: row;
@@ -209,4 +199,10 @@ input[type=text], input[type=file], textarea, select {
     margin-left: 20px;
     margin-bottom: 20px;
     height: 600px;
+}
+
+@media only screen and (max-width: 1420px) {
+    #sectionimgdesc > section {
+        margin-left: 0;
+    }
 }

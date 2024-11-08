@@ -10,7 +10,7 @@
         <?php
         require_once("./html/nav.php");
         ?>
-        <section class="margin flexBoxColumn flexBoxCenter">
+        <section class="marginLeftRight flexBoxColumn flexBoxCenter">
             <h2>Jeux de société</h2>
               <section class="widthFull flexBoxRow flexBoxCenterJustify flexBoxFlexStartAlign">
                 <section id="filterContainer" class="flexBoxColumn flexBoxCenterAlign shadow">

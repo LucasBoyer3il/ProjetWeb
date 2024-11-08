@@ -1,6 +1,9 @@
 <?php
 require_once("BDDConnect.php");
 if(isset($_GET['id'])){
+    //*******************************************
+    // AFFICHAGE DESCRIPTION D'UN JEU
+    //*******************************************
     $id = $_GET['id'];
     $descriptionRequest = "SELECT * FROM descriptionJeux WHERE id = ".$id."";
     $responseDescReq = $mysqli->query($descriptionRequest);

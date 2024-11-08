@@ -280,7 +280,7 @@ b {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 300px;
+        height: 360px;
         background-color: var(--general);
         color: white;
     }
@@ -292,6 +292,11 @@ b {
         width: auto;
     }
     
+    .marginLeftRight {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     header {
         border-bottom: solid 2px var(--precis);
     }
@@ -314,7 +319,8 @@ b {
     }
 
     .descriptionImage {
-        width: 300px;
+        margin: 20px;
+        width: 260px;
         height: 300px;
     }
 
@@ -325,5 +331,21 @@ b {
     .alert {
         right: 80px;
         top: 220px;
+    }
+
+    footer {
+        height: 500px !important;
+    }
+
+    footer > section > section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #contactInfoFooter > p , footer > section > section > p , footer > section > section > h4{
+        margin: 0;
     }
 }

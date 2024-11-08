@@ -5,7 +5,7 @@ var xmlHttp = new XMLHttpRequest();
 xmlHttp.onload = function() {
     document.getElementById('sectionimgdesc').innerHTML = this.responseText;
 };
-xmlHttp.open("GET", "./php/BDDRequest.php?mode="+mode, true);
+xmlHttp.open("GET", "./php/BDDRequestGestionDesJeux.php?mode="+mode, true);
 xmlHttp.send();
 
 var queryString = window.location.search;
@@ -15,7 +15,7 @@ var xmlHttp = new XMLHttpRequest();
 xmlHttp.onload = function() {
     document.getElementById('insertionContainer').innerHTML = this.responseText;
 };
-xmlHttp.open("GET", "./php/BDDRequestForm.php?id="+id+"&mode="+mode, true);
+xmlHttp.open("GET", "./php/BDDRequestFormGestionDesJeux.php?id="+id+"&mode="+mode, true);
 xmlHttp.send();
 
 var xmlHttp = new XMLHttpRequest();

@@ -3,6 +3,9 @@ require_once("BDDConnect.php");
 
 
 if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
+    //********************************************************************
+    // AFFICHAGE DES JEUX AVEC UN FILTRE SUR LE NOM (barre de recherche)
+    //********************************************************************
     $nom = $_GET['nom'];
     $presentationRequest = "SELECT * FROM presentationJeux WHERE nomJeu LIKE '%$nom%'";
     $responsePresReq = $mysqli->query($presentationRequest);
@@ -44,6 +47,9 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
     }
     $responsePresReq -> free_result();
 } else if (isset($_GET['recherche']) && $_GET['recherche'] == 'filtre') {
+    //********************************************************************
+    // AFFICHAGE DES JEUX AVEC LES FILTRES DU FORM
+    //********************************************************************
     $nbJmin = null;
     if (isset($_GET['nbJmin'])) {
         $nbJmin = $_GET['nbJmin'];
@@ -144,7 +150,9 @@ if (isset($_GET['recherche']) && $_GET['recherche'] == 'nom') {
         echo ("Aucun filtre sélectionné");
     }
 } else if (isset($_GET['affichage']) && $_GET['affichage'] == "jeux") {
-
+    //****************************
+    // AFFICHAGE DES JEUX EN BDD
+    //****************************
     $descriptionRequest = "SELECT nombreJoueurMin, nombreJoueurMax, ageMinimum, tempsJeu FROM descriptionJeux";
     $responseDescReq = $mysqli->query($descriptionRequest);
 
